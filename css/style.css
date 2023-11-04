@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@400;600&family=Oswald:wght@400;600;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+body::-webkit-scrollbar{
+    display: block;
+    width: 8px;
+    background-color: #f5f3f4;
+}
+body::-webkit-scrollbar-thumb{
+    background-color: #ffd60a;
+    border-radius: 50px;
+}
+:root{
+    --main-color:#edf2f4;
+    --second-color:#0b090a;
+    --third-color:#d00000;
+    --main-back-color:#d00000;
+    --second-back-color:#ffd60a;
+}
+nav{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: fixed;
+}
+nav img{
+    width: 170px;
+    height: 150px;
+}
+.center-nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.center-nav ul{
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+.center-nav ul a{
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    color: var(--main-color);
+}
+nav i{
+    font-size: 1.5rem;
+    color: var(--third-color);
+    background-color: var(--main-color);
+    padding: 10px 10px;
+    border-radius: 50%;
+}
+.header-img{
+    width: 100%;
+    height: 650px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0px;
+    background: linear-gradient(rgb(0, 0, 0, 0.1), rgb(0, 0, 0, 0.8)), url("../images/resturant\ header\ image.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.header-img h1{
+    font-family: 'Edu TAS Beginner', cursive;
+    font-size: 5rem;
+    color: var(--main-color);
+}
+.header-img h2{
+    font-family: 'Oswald', sans-serif;
+    font-size: 4rem;
+    color: var(--main-color);
+    font-weight: 400;
+}
+.intro{
+    width: 100%;
+    padding-block: 40px;
+    padding-inline: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.image-grid{
+    width: 600px;
+    height: 480px;
+    background-color: #fff;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 15px;
+    box-shadow: 10px 0px 20px #ccc,-10px 0px 20px  #ccc;
+}
+.image-grid .top{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+}
+.image-grid .top img{
+    width: 250px;
+    height: 200px;
+    border-radius: 20px;
+}
+.image-grid .bottom{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+}
+.image-grid .bottom img{
+    width: 250px;
+    height: 200px;
+    border-radius: 20px;
+}
+.s-intro{
+    width: 600px;
+    height: 480px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: var(--main-back-color);
+    border-radius: 15px;
+    box-shadow: 10px 0px 20px #ededed,-10px 0px 20px  #ededed;
+    padding: 30px;
+}
+.s-intro h1{
+    font-family: 'Oswald', sans-serif;
+    color: var(--second-back-color);
+    font-size: 3rem;
+    font-weight: 600;
+}
+.s-intro h2{
+    font-family: 'Oswald', sans-serif;
+    color: var(--main-color);
+    font-weight: 400;
+    font-size: 2.5rem;
+}
+.s-intro p{
+    font-family: 'Oswald', sans-serif;
+    color: #fff;
+    font-weight: 400;
+    font-size: 1.5rem;
+}
