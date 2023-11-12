@@ -4,159 +4,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/sheryjs/dist/Shery.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
     <link rel="shortcut icon" href="images/food sea logo.png" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
     <title>Food Sea | Home</title>
 </head>
 
 <body>
-    <nav>
-        <img src="images/food sea logo.png" alt="web logo">
-        <i class="fa-solid fa-bars"></i>
-    </nav>
+    <div id="main">
+        <nav>
+            <img src="images/food sea logo.png" alt="web logo" id="logo">
+            <i class="fa-solid fa-bars" id="menubar"></i>
+        </nav>
 
-    <div id="hero">
-        <div id="texts">
-            <h1>Feel The <span>Tastiest</span></h1>
-            <h1>and <span>Delicious</span> Food</h1>
-            <h1>in the <span>Area</span>.</h1>
-            <p><i class="fa-solid fa-circle-check"></i></p>
+        <div id="hero">
+            <div id="texts">
+                <h1>Feel the</h1>
+                <h1>Tastiest</h1>
+                <h1>Delicious Food</h1>
+                <h1>In the Area.</h1>
+                <p><i class="fa-solid fa-circle-check"></i> Top Quality</p>
+                <p><i class="fa-solid fa-circle-check"></i> Online Delivery</p>
+            </div>
+            <div id="hero-images">
+                <img src="images/pav bhaji.jpg" alt="" class="himg">
+            </div>
         </div>
-        <div id="hero-images">
-            <img src="images/pav bhaji.jpg" alt="">
-        </div>
-    </div>
 
-    <div class="intro">
-        <div class="image-grid">
-            <div class="top">
-                <img src="images/biryani img.jpg" alt="">
-                <img src="images/burger img.jpg" alt="">
-            </div>
-            <div class="bottom">
-                <img src="images/fried rice img.jpg" alt="">
-                <img src="images/pizza img.jpg" alt="">
+        <div class="intro">
+            <h1><span>Food Sea <i class="fa-solid fa-utensils"></i></span><br>Passion for Food, Excellence in Every Bite.<br>We strive to use locally sourced, fresh ingredients to create our dishes whenever possible.</h1>
+            <div class="i-images">
+                <img src="images/biryani pic card.png" alt="">
+                <img src="images/fried rice pic card.png" alt="">
+                <img src="images/biryani pic card.png" alt="">
             </div>
         </div>
-        <div class="s-intro">
-            <h1>Food Sea Resurant <i class="fa-solid fa-utensils"></i></h1>
-            <h2>Where Flavor Meets Imagination !</h2>
-            <p>We Strive to use locally sourced, fresh ingredients to create our dishes whenever possible absolutely.
-                Best in flavor dishes that will blow your mind.</p>
-        </div>
-    </div>
 
-    <div class="top-dishes-section">
-        <h1 id="top-heading">Our Most Famous <span>Dishes</span> </h1>
-        <div class="list">
-            <div class="food-cards">
-                <img src="images/biriyani.jpg" alt="">
-                <h1>Sahi Biryani</h1>
-            </div>
-            <div class="food-cards">
-                <img src="images/fried chicken.jpg" alt="">
-                <h1>Fried Chicken</h1>
-            </div>
-            <div class="food-cards">
-                <img src="images/pulao.jpg" alt="">
-                <h1>Basanti Pulao</h1>
-            </div>
-            <div class="food-cards">
-                <img src="images/sahi paneer.jpg" alt="">
-                <h1>Sahi Paneer</h1>
-            </div>
-            <div class="food-cards">
-                <img src="images/pav bhaji.jpg" alt="">
-                <h1>Pav Bhaji</h1>
-            </div>
-        </div>
-        <a href="#" id="menu-btn">Explore Menu</a>
-    </div>
-
-    <div class="services">
-        <div class="service-cards">
-            <i class="fa-solid fa-person-biking"></i>
-            <p>Fastest Delivery</p>
-        </div>
-        <div class="service-cards">
-            <i class="fa-solid fa-medal"></i>
-            <p>Best Quality</p>
-        </div>
-        <div class="service-cards">
-            <i class="fa-solid fa-mobile-screen-button"></i>
-            <p>Easy to Order</p>
-        </div>
-    </div>
-
-    <div class="user-feedback-section">
-        <h1>See what our customers say <i class="fa-regular fa-face-smile-beam"></i></h1>
-        <div class="feedbacks">
-            <div class="feedback">
-                <h3>"Best Resturant in the area."</h3>
-                <div class="stars">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
+        <div class="top-dishes-section">
+            <h1 id="top-heading">Our Most Famous <span>Dishes</span> </h1>
+            <div class="list">
+                <div class="food-cards" id="card1">
+                    <div id="explore1" class="explore">Explore</div>
+                    <img src="images/biriyani.jpg" alt="">
+                    <h1>Sahi Biryani</h1>
+                </div>
+                <div class="food-cards" id="card2">
+                    <div id="explore2" class="explore">Explore</div>
+                    <img src="images/fried chicken.jpg" alt="">
+                    <h1>Fried Chicken</h1>
+                </div>
+                <div class="food-cards" id="card3">
+                    <div id="explore3" class="explore">Explore</div>
+                    <img src="images/pulao.jpg" alt="">
+                    <h1>Basanti Pulao</h1>
+                </div>
+                <div class="food-cards" id="card4">
+                    <div id="explore4" class="explore">Explore</div>
+                    <img src="images/sahi paneer.jpg" alt="">
+                    <h1>Sahi Paneer</h1>
+                </div>
+                <div class="food-cards" id="card5">
+                    <div id="explore5" class="explore">Explore</div>
+                    <img src="images/pav bhaji.jpg" alt="">
+                    <h1>Pav Bhaji</h1>
                 </div>
             </div>
-            <div class="feedback">
-                <h3>"Good quality food, very tasty, best Resturant ever."</h3>
-                <div class="stars">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                </div>
+            <a href="#" id="menu-btn">Explore Menu</a>
+        </div>
+
+        <div class="services">
+            <div class="service-cards">
+                <i class="fa-solid fa-person-biking"></i>
+                <p>Fastest Delivery</p>
             </div>
-            <div class="feedback">
-                <h3>"Good and fast delivery, good service, really happy."</h3>
-                <div class="stars">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                </div>
+            <div class="service-cards">
+                <i class="fa-solid fa-medal"></i>
+                <p>Best Quality</p>
             </div>
-            <div class="feedback">
-                <h3>"Good and fast delivery, good service, really happy."</h3>
-                <div class="stars">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
+            <div class="service-cards">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+                <p>Easy to Order</p>
+            </div>
+            <div class="service-cards">
+                <i class="fa-regular fa-clipboard"></i>
+                <p>Book Table Easily</p>
+            </div>
+        </div>
+
+        <div class="user-feedback-section">
+            <h1>See What our Customers Say <i class="fa-regular fa-face-smile-beam"></i></h1>
+            <div class="feedbacks">
+                <div class="feedback">
+                    <h3>"Best Resturant in the area."</h3>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+                <div class="feedback">
+                    <h3>"Good quality food, very tasty, best Resturant ever."</h3>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+                <div class="feedback">
+                    <h3>"Good and fast delivery, good service, really happy."</h3>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+                <div class="feedback">
+                    <h3>"Good and fast delivery, good service, really happy."</h3>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <footer>
+            <img src="images/food sea logo.png" alt="">
+            <div class="useful-link">
+                <h1>Useful Link</h1>
+                <a href="#">About Us</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Home</a>
+                <a href="#">Menu</a>
+            </div>
+            <div class="useful-link">
+                <h1>Useful Link</h1>
+                <p>Home Delivery</p>
+                <p>Office Delivery</p>
+                <p>Events</p>
+                <p>24 Hours Delivery</p>
+            </div>
+        </footer>
     </div>
 
-    <footer>
-        <img src="images/food sea logo.png" alt="">
-        <div class="useful-link">
-            <h1>Useful Link</h1>
-            <a href="#">About Us</a>
-            <a href="#">Contact Us</a>
-            <a href="#">Home</a>
-            <a href="#">Menu</a>
-        </div>
-        <div class="useful-link">
-            <h1>Useful Link</h1>
-            <p>Home Delivery</p>
-            <p>Office Delivery</p>
-            <p>Events</p>
-            <p>24 Hours Delivery</p>
-        </div>
-    </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.155.0/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/automat/controlkit.js@master/bin/controlKit.min.js"></script>
-    <script type="text/javascript" src="https://unpkg.com/sheryjs/dist/Shery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+        integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+    <script  type="text/javascript"  src="https://unpkg.com/sheryjs/dist/Shery.js"></script>
     <script src="https://kit.fontawesome.com/e04331d407.js" crossorigin="anonymous"></script>
     <script src="app.js"></script>
 </body>
