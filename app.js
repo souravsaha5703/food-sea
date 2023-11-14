@@ -38,29 +38,14 @@ Shery.imageEffect(".i-images", {
     touchSpeed: 8,
     damping: 7,
 });
-// Shery.mouseFollower({
-//     //Parameters are optional.
-//     skew: true,
-//     ease: "cubic-bezier(0.23, 1, 0.320, 1)",
-//     duration: 0.5,
-// });
-// Shery.imageMasker(".food-cards" /* Element to target.*/, {
-//     //Parameters are optional.
-//     mouseFollower: true,
-//     text: "Explore",
-//     ease: "cubic-bezier(0.23, 1, 0.320, 1)",
-//     duration: 1,
-// });
 var foodCard1=document.getElementById("card1");
 var foodCard2=document.getElementById("card2");
 var foodCard3=document.getElementById("card3");
 var foodCard4=document.getElementById("card4");
-var foodCard5=document.getElementById("card5");
-var exploreBtn1=document.querySelector("#explore1");
-var exploreBtn2=document.querySelector("#explore2");
-var exploreBtn3=document.querySelector("#explore3");
-var exploreBtn4=document.querySelector("#explore4");
-var exploreBtn5=document.querySelector("#explore5");
+var exploreBtn1=document.querySelector("#expo1");
+var exploreBtn2=document.querySelector("#expo2");
+var exploreBtn3=document.querySelector("#expo3");
+var exploreBtn4=document.querySelector("#expo4");
 
 foodCard1.addEventListener("mouseenter",()=>{
     gsap.to(exploreBtn1,{
@@ -106,18 +91,6 @@ foodCard4.addEventListener("mouseenter",()=>{
 });
 foodCard4.addEventListener("mouseleave",()=>{
     gsap.to(exploreBtn4,{
-        scale:0,
-        opacity:0
-    });
-});
-foodCard5.addEventListener("mouseenter",()=>{
-    gsap.to(exploreBtn5,{
-        scale:1,
-        opacity:1
-    });
-});
-foodCard5.addEventListener("mouseleave",()=>{
-    gsap.to(exploreBtn5,{
         scale:0,
         opacity:0
     });
