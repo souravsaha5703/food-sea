@@ -37,6 +37,55 @@ body::-webkit-scrollbar-thumb{
 #main{
     width: 100%;
 }
+.menu-section{
+    position: fixed;
+    width: 600px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    top: 0;
+    right:-50%;
+    background-color: var(--third-back-color);
+    z-index: 50;
+}
+.menu-section h1{
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 2px;
+    color: #adb5bd;
+}
+.menu-section .divider{
+    width: 150px;
+    background-color: var(--second-color);
+    height: 2px;
+}
+.menu-section ul{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    list-style: none;
+}
+.menu-section ul li{
+    padding-block: 10px;
+}
+.menu-section ul li a{
+    text-decoration: none;
+    font-size: 2rem;
+    color: var(--second-color);
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+}
+.menu-section i{
+    position: absolute;
+    top: 5%;
+    right: 10%;
+    font-size: 2.2rem;
+    cursor: pointer;
+}
 nav{
     width: 100%;
     display: flex;
@@ -51,13 +100,17 @@ nav img{
     width: 110px;
     height: 110px;
 }
-nav i{
+#menubar{
     font-size: 1.5rem;
     color: var(--third-color);
     background-color: var(--main-color);
     padding: 10px 10px;
     border-radius: 50%;
     cursor: pointer;
+    position: fixed;
+    z-index: 50;
+    top: 30px;
+    right: 50px;
 }
 #hero{
     width: 100%;
