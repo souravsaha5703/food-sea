@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Borel&family=Oswald:wght@400;600;700&family=Poppins:wght@400;600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+:root{
+    --main-color:#edf2f4;
+    --second-color:#0b090a;
+    --third-color:#d00000;
+    --main-back-color:#d00000;
+    --second-back-color:#ffd60a;
+    --third-back-color:#ededed;
+}
+#cursor{
+    height: 10px;
+    width: 10px;
+    background-color: var(--second-color);
+    border-radius: 50%;
+    position: fixed;
+    z-index: 100;
+}
+#main{
+    width: 100%;
+}
+#menubar{
+    font-size: 1.5rem;
+    color: var(--third-color);
+    background-color: var(--main-color);
+    padding: 10px 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: fixed;
+    z-index: 50;
+    top: 30px;
+    right: 50px;
+}
+.menu-section{
+    position: fixed;
+    width: 600px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    top: 0;
+    right:-50%;
+    background-color: var(--third-back-color);
+    z-index: 50;
+}
+.menu-section h1{
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 2px;
+    color: #adb5bd;
+}
+.menu-section .divider{
+    width: 150px;
+    background-color: var(--second-color);
+    height: 2px;
+}
+.menu-section ul{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    list-style: none;
+}
+.menu-section ul li{
+    padding-block: 10px;
+}
+.menu-section ul li a{
+    text-decoration: none;
+    font-size: 2rem;
+    color: var(--second-color);
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+}
+.menu-section i{
+    position: absolute;
+    top: 5%;
+    right: 10%;
+    font-size: 2.2rem;
+    cursor: pointer;
+}
+#food-menus{
+    width: 100%;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+}
+#heading{
+    text-align: center;
+    font-family: 'Borel', cursive;
+    font-size: 2.5rem;
+    text-decoration: underline;
+    color: var(--third-color);
+}
+.menus{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.menu-card{
+    width: 300px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 10px 0px 20px #ccc,-10px 0px 20px  #ccc;
+}
+.menu-card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.menu-card .layer{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(rgb(0, 0, 0, 0.3), rgb(0, 0, 0, 0.5));
+}
+.menu-card .food-name{
+    position: absolute;
+    bottom: 25%;
+    right: 10%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    color: var(--main-color);
+    font-weight: 600;
+}
+.menu-card .price{
+    position: absolute;
+    bottom: 17%;
+    right: 10%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--third-back-color);
+}
+
+.menu-card a{
+    position: absolute;
+    bottom: 5%;
+    right: 10%;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-size: 1.2rem;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--second-back-color);
+    padding: 5px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    color: var(--second-color);
+    transition: all 0.3s ease-in-out;
+}
+.menu-card a:hover{
+    background-color: var(--main-back-color);
+    color: var(--main-color);
+}
+footer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px;
+    background-color: var(--third-back-color);
+}
+footer img{
+    width: 200px;
+}
+.useful-link{
+    display: flex;
+    flex-direction: column;
+}
+.useful-link h1{
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    color: var(--second-color);
+}
+.useful-link a{
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    color: #adb5bd;
+}
+.useful-link p{
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    color: #adb5bd; 
+}
