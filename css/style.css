@@ -26,6 +26,14 @@ body::-webkit-scrollbar-thumb{
     --second-back-color:#ffd60a;
     --third-back-color:#ededed;
 }
+#cursor{
+    height: 10px;
+    width: 10px;
+    background-color: var(--second-color);
+    border-radius: 50%;
+    position: fixed;
+    z-index: 100;
+}
 #main{
     width: 100%;
 }
@@ -112,6 +120,7 @@ nav i{
     color: var(--second-color);
     letter-spacing: 0.6px;
     font-weight: 400;
+    overflow: hidden;
 }
 .intro h1 span{
     color: var(--main-back-color);
@@ -192,21 +201,6 @@ nav i{
     top: 45%;
     left: 75%;
 }
-.explore{
-    padding-top: 20px;
-    padding-bottom: 10px;
-    padding-inline: 20px;
-    background-color: var(--main-color);
-    color: var(--second-color);
-    font-size: 1.5rem;
-    font-family: 'Borel', cursive;
-    font-weight: 600;
-    position: fixed;
-    border-radius: 50%;
-    z-index: 11;
-    opacity: 0;
-    scale: 0;
-}
 .top-dishes-section #menu-btn{
     text-decoration: none;
     color: var(--main-back-color);
@@ -242,7 +236,6 @@ nav i{
     border-radius: 50%;
     gap: 20px;
     transition: all 0.1s ease-in-out;
-    cursor: pointer;
 }
 .service-cards i{
     font-size: 1.7rem;

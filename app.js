@@ -3,6 +3,18 @@ const scroll = new LocomotiveScroll({
     smooth: true
 });
 
+var cursor=document.getElementById("cursor");
+var foodCard1=document.getElementById("card1");
+var foodCard2=document.getElementById("card2");
+var foodCard3=document.getElementById("card3");
+var foodCard4=document.getElementById("card4");
+
+document.addEventListener("mousemove",(dets)=>{
+    cursor.style.left=dets.x+"px";
+    cursor.style.top=dets.y+"px";
+    cursor.style.transition="all 0.3 ease-in";
+});
+
 gsap.from("#logo",{
     y:10,
     duration:1,
@@ -29,6 +41,20 @@ gsap.from("#hero-images img",{
     ease:Power3,
     opacity:0
 });
+gsap.from("#sintro",{
+    x:-150,
+    duration:2,
+    opacity:0,
+    ease:Power3,
+    scrollTrigger:{
+        trigger:"#sintro",
+        scroller:"body",
+        start:"top 50%",
+        end:"top 60%",
+        markers:true,
+        scrub:2
+    }
+});
 Shery.imageEffect(".i-images", {
     style: 4,
     /*optional parameters
@@ -38,60 +64,88 @@ Shery.imageEffect(".i-images", {
     touchSpeed: 8,
     damping: 7,
 });
-var foodCard1=document.getElementById("card1");
-var foodCard2=document.getElementById("card2");
-var foodCard3=document.getElementById("card3");
-var foodCard4=document.getElementById("card4");
-var exploreBtn1=document.querySelector("#expo1");
-var exploreBtn2=document.querySelector("#expo2");
-var exploreBtn3=document.querySelector("#expo3");
-var exploreBtn4=document.querySelector("#expo4");
 
 foodCard1.addEventListener("mouseenter",()=>{
-    gsap.to(exploreBtn1,{
-        scale:1,
-        opacity:1
+    cursor.innerHTML="Explore";
+    cursor.style.color="#fff";
+    cursor.style.display="flex";
+    cursor.style.alignItems="center";
+    cursor.style.justifyContent="center";
+    cursor.style.fontFamily="'Borel', cursive";
+    gsap.to(cursor,{
+        width:100,
+        height:100,
+        ease:Power3
     });
 });
 foodCard1.addEventListener("mouseleave",()=>{
-    gsap.to(exploreBtn1,{
-        scale:0,
-        opacity:0
+    cursor.innerHTML="";
+    gsap.to(cursor,{
+        width:10,
+        height:10,
+        ease:Power3
     });
 });
 foodCard2.addEventListener("mouseenter",()=>{
-    gsap.to(exploreBtn2,{
-        scale:1,
-        opacity:1
+    cursor.innerHTML="Explore";
+    cursor.style.color="#fff";
+    cursor.style.display="flex";
+    cursor.style.alignItems="center";
+    cursor.style.justifyContent="center";
+    cursor.style.fontFamily="'Borel', cursive";
+    gsap.to(cursor,{
+        width:100,
+        height:100,
+        ease:Power3
     });
 });
 foodCard2.addEventListener("mouseleave",()=>{
-    gsap.to(exploreBtn2,{
-        scale:0,
-        opacity:0
+    cursor.innerHTML=""
+    gsap.to(cursor,{
+        width:10,
+        height:10,
+        ease:Power3
     });
 });
 foodCard3.addEventListener("mouseenter",()=>{
-    gsap.to(exploreBtn3,{
-        scale:1,
-        opacity:1
+    cursor.innerHTML="Explore";
+    cursor.style.color="#fff";
+    cursor.style.display="flex";
+    cursor.style.alignItems="center";
+    cursor.style.justifyContent="center";
+    cursor.style.fontFamily="'Borel', cursive";
+    gsap.to(cursor,{
+        width:100,
+        height:100,
+        ease:Power3
     });
 });
 foodCard3.addEventListener("mouseleave",()=>{
-    gsap.to(exploreBtn3,{
-        scale:0,
-        opacity:0
+    cursor.innerHTML=""
+    gsap.to(cursor,{
+        width:10,
+        height:10,
+        ease:Power3
     });
 });
 foodCard4.addEventListener("mouseenter",()=>{
-    gsap.to(exploreBtn4,{
-        scale:1,
-        opacity:1
+    cursor.innerHTML="Explore";
+    cursor.style.color="#fff";
+    cursor.style.display="flex";
+    cursor.style.alignItems="center";
+    cursor.style.justifyContent="center";
+    cursor.style.fontFamily="'Borel', cursive";
+    gsap.to(cursor,{
+        width:100,
+        height:100,
+        ease:Power3
     });
 });
 foodCard4.addEventListener("mouseleave",()=>{
-    gsap.to(exploreBtn4,{
-        scale:0,
-        opacity:0
+    cursor.innerHTML=""
+    gsap.to(cursor,{
+        width:10,
+        height:10,
+        ease:Power3
     });
 });
