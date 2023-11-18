@@ -13,6 +13,7 @@ var contactBtn=document.getElementById("contact");
 var menuBtn=document.getElementById("menubar");
 var menuSection=document.getElementsByClassName("menu-section");
 var closeMenuBtn=document.getElementById("close-menu");
+var menus=document.getElementById("menus");
 
 document.addEventListener("mousemove",(dets)=>{
     cursor.style.left=dets.x+"px";
@@ -171,4 +172,121 @@ closeMenuBtn.addEventListener("click",()=>{
         right:"-50%",
         ease:Power3
     });
+});
+
+const foods=[{
+    foodId:1,
+    foodName:"Pizza",
+    foodPrice:"₹150",
+    foodImage:'../images/pizza img.jpg'
+    },
+    {
+    foodId:2,
+    foodName:"Sahi Biryani",
+    foodPrice:"₹360",
+    foodImage:'../images/biryani img.jpg'
+    },
+    {
+    foodId:3,
+    foodName:"Mac Burger",
+    foodPrice:"₹200",
+    foodImage:'../images/burger img.jpg'
+    },
+    {
+    foodId:4,
+    foodName:"Fried Chicken",
+    foodPrice:"₹150",
+    foodImage:'../images/fried chicken.jpg'
+    },
+    {
+    foodId:5,
+    foodName:"Sahi Paneer",
+    foodPrice:"₹200",
+    foodImage:'../images/sahi paneer.jpg'
+    },
+    {
+    foodId:6,
+    foodName:"Pulao",
+    foodPrice:"₹300",
+    foodImage:'../images/pulao.jpg'
+    },
+    {
+    foodId:7,
+    foodName:"Fried Rice",
+    foodPrice:"₹350",
+    foodImage:'../images/fried rice img.jpg'
+    },
+    {
+    foodId:8,
+    foodName:"Pav Bhaji",
+    foodPrice:"₹200",
+    foodImage:'../images/pav bhaji.jpg'
+    },
+    {
+    foodId:9,
+    foodName:"Crisspy Dosa",
+    foodPrice:"₹250",
+    foodImage:'../images/dosa image.jpg'
+    },
+    {
+    foodId:10,
+    foodName:"Idli",
+    foodPrice:"₹120",
+    foodImage:'../images/idli image.jpg'
+    },
+    {
+    foodId:11,
+    foodName:"Chicken Momo",
+    foodPrice:"₹80",
+    foodImage:'../images/chicken momo image.png'
+    },
+    {
+    foodId:12,
+    foodName:"Chowmein",
+    foodPrice:"₹60",
+    foodImage:'../images/chowmin image.jpg'
+    },
+    {
+    foodId:13,
+    foodName:"Spicy Pasta",
+    foodPrice:"₹75",
+    foodImage:'../images/pasta image.jpg'
+    },
+    {
+    foodId:14,
+    foodName:"Yellow Mount Cake",
+    foodPrice:"₹60",
+    foodImage:'../images/pastry.jpg'
+    },
+    {
+    foodId:15,
+    foodName:"Roso Golla",
+    foodPrice:"₹20",
+    foodImage:'../images/roso golla image.jpg'
+    },
+];
+
+foods.forEach((food)=>{
+    let menuCard=document.createElement("div");
+    let foodsImage=document.createElement("img");
+    let foodsName=document.createElement("h2");
+    let foodsPrice=document.createElement("p");
+    let buyOption=document.createElement("a");
+    let imageLayer=document.createElement("div");
+    menuCard.className="menu-card";
+    foodsImage.className="foodimg";
+    foodsImage.src=food.foodImage;
+    foodsName.className="food-name";
+    foodsName.innerHTML=food.foodName;
+    foodsPrice.className="price";
+    foodsPrice.innerHTML=food.foodPrice;
+    buyOption.className="buy";
+    buyOption.innerHTML=`<i class="fa-solid fa-cart-shopping"></i>`;
+    imageLayer.className="layer";
+    menus.appendChild(menuCard);
+    menuCard.appendChild(foodsImage);
+    menuCard.appendChild(imageLayer);
+    menuCard.appendChild(foodsName);
+    menuCard.appendChild(foodsPrice);
+    menuCard.appendChild(buyOption);
 });
