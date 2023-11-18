@@ -98,11 +98,20 @@ body{
 #heading{
     text-align: center;
     font-family: 'Borel', cursive;
-    font-size: 2.5rem;
+    font-size: 4rem;
     text-decoration: underline;
     color: var(--third-color);
 }
-.menus{
+.food-type{
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    font-size: 3rem;
+    text-decoration: underline;
+    color: var(--second-color);
+    font-weight: 600;
+    text-transform: capitalize;
+}
+.non-veg-menus{
     width: 100%;
     display: flex;
     align-items: center;
@@ -110,6 +119,24 @@ body{
     padding: 20px;
     flex-wrap: wrap;
     gap: 20px;
+}
+.veg-menus{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.desserts-menus{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    flex-wrap: wrap;
+    gap: 20px; 
 }
 .menu-card{
     width: 300px;

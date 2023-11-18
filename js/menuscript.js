@@ -1,7 +1,31 @@
-// const scroll = new LocomotiveScroll({
-//     el: document.querySelector('#main'),
-//     smooth: true
-// });
+gsap.registerPlugin(ScrollTrigger);
+
+// Using Locomotive Scroll from Locomotive https://github.com/locomotivemtl/locomotive-scroll
+
+const locoScroll = new LocomotiveScroll({
+  el: document.querySelector("#main"),
+  smooth: true
+});
+// each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
+locoScroll.on("scroll", ScrollTrigger.update);
+
+// tell ScrollTrigger to use these proxy methods for the "#main" element since Locomotive Scroll is hijacking things
+ScrollTrigger.scrollerProxy("#main", {
+  scrollTop(value) {
+    return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
+  }, // we don't have to define a scrollLeft because we're only scrolling vertically.
+  getBoundingClientRect() {
+    return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
+  },
+  // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
+  pinType: document.querySelector("#main").style.transform ? "transform" : "fixed"
+});
+
+// each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll. 
+ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+
+// after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
+ScrollTrigger.refresh();
 
 var cursor=document.getElementById("cursor");
 var homeBtn=document.getElementById("home");
@@ -13,7 +37,10 @@ var contactBtn=document.getElementById("contact");
 var menuBtn=document.getElementById("menubar");
 var menuSection=document.getElementsByClassName("menu-section");
 var closeMenuBtn=document.getElementById("close-menu");
-var menus=document.getElementById("menus");
+var menus=document.getElementById("non-veg-menus");
+var vegMenus=document.getElementById("veg-menus");
+var dessertMenus=document.getElementById("desserts-menus");
+
 
 document.addEventListener("mousemove",(dets)=>{
     cursor.style.left=dets.x+"px";
@@ -174,119 +201,189 @@ closeMenuBtn.addEventListener("click",()=>{
     });
 });
 
+gsap.from("#heading",{
+    y:20,
+    duration:2,
+    opacity:0,
+    ease:Power3
+});
+
 const foods=[{
     foodId:1,
     foodName:"Pizza",
     foodPrice:"₹150",
-    foodImage:'../images/pizza img.jpg'
+    foodImage:'../images/pizza img.jpg',
+    category:"non veg"
     },
     {
     foodId:2,
     foodName:"Sahi Biryani",
     foodPrice:"₹360",
-    foodImage:'../images/biryani img.jpg'
+    foodImage:'../images/biryani img.jpg',
+    category:"non veg"
     },
     {
     foodId:3,
     foodName:"Mac Burger",
     foodPrice:"₹200",
-    foodImage:'../images/burger img.jpg'
+    foodImage:'../images/burger img.jpg',
+    category:"non veg"
     },
     {
     foodId:4,
     foodName:"Fried Chicken",
     foodPrice:"₹150",
-    foodImage:'../images/fried chicken.jpg'
+    foodImage:'../images/fried chicken.jpg',
+    category:"non veg"
     },
     {
     foodId:5,
     foodName:"Sahi Paneer",
     foodPrice:"₹200",
-    foodImage:'../images/sahi paneer.jpg'
+    foodImage:'../images/sahi paneer.jpg',
+    category:"veg"
     },
     {
     foodId:6,
     foodName:"Pulao",
     foodPrice:"₹300",
-    foodImage:'../images/pulao.jpg'
+    foodImage:'../images/pulao.jpg',
+    category:"veg"
     },
     {
     foodId:7,
     foodName:"Fried Rice",
     foodPrice:"₹350",
-    foodImage:'../images/fried rice img.jpg'
+    foodImage:'../images/fried rice img.jpg',
+    category:"veg"
     },
     {
     foodId:8,
     foodName:"Pav Bhaji",
     foodPrice:"₹200",
-    foodImage:'../images/pav bhaji.jpg'
+    foodImage:'../images/pav bhaji.jpg',
+    category:"non veg"
     },
     {
     foodId:9,
     foodName:"Crisspy Dosa",
     foodPrice:"₹250",
-    foodImage:'../images/dosa image.jpg'
+    foodImage:'../images/dosa image.jpg',
+    category:"veg"
     },
     {
     foodId:10,
     foodName:"Idli",
     foodPrice:"₹120",
-    foodImage:'../images/idli image.jpg'
+    foodImage:'../images/idli image.jpg',
+    category:"veg"
     },
     {
     foodId:11,
     foodName:"Chicken Momo",
     foodPrice:"₹80",
-    foodImage:'../images/chicken momo image.png'
+    foodImage:'../images/chicken momo image.png',
+    category:"non veg"
     },
     {
     foodId:12,
     foodName:"Chowmein",
     foodPrice:"₹60",
-    foodImage:'../images/chowmin image.jpg'
+    foodImage:'../images/chowmin image.jpg',
+    category:"non veg"
     },
     {
     foodId:13,
     foodName:"Spicy Pasta",
     foodPrice:"₹75",
-    foodImage:'../images/pasta image.jpg'
+    foodImage:'../images/pasta image.jpg',
+    category:"non veg"
     },
     {
     foodId:14,
     foodName:"Yellow Mount Cake",
     foodPrice:"₹60",
-    foodImage:'../images/pastry.jpg'
+    foodImage:'../images/pastry.jpg',
+    category:"desserts"
     },
     {
     foodId:15,
     foodName:"Roso Golla",
     foodPrice:"₹20",
-    foodImage:'../images/roso golla image.jpg'
+    foodImage:'../images/roso golla image.jpg',
+    category:"desserts"
     },
 ];
 
 foods.forEach((food)=>{
-    let menuCard=document.createElement("div");
-    let foodsImage=document.createElement("img");
-    let foodsName=document.createElement("h2");
-    let foodsPrice=document.createElement("p");
-    let buyOption=document.createElement("a");
-    let imageLayer=document.createElement("div");
-    menuCard.className="menu-card";
-    foodsImage.className="foodimg";
-    foodsImage.src=food.foodImage;
-    foodsName.className="food-name";
-    foodsName.innerHTML=food.foodName;
-    foodsPrice.className="price";
-    foodsPrice.innerHTML=food.foodPrice;
-    buyOption.className="buy";
-    buyOption.innerHTML=`<i class="fa-solid fa-cart-shopping"></i>`;
-    imageLayer.className="layer";
-    menus.appendChild(menuCard);
-    menuCard.appendChild(foodsImage);
-    menuCard.appendChild(imageLayer);
-    menuCard.appendChild(foodsName);
-    menuCard.appendChild(foodsPrice);
-    menuCard.appendChild(buyOption);
+    if(food.category=='non veg'){
+        let menuCard=document.createElement("div");
+        let foodsImage=document.createElement("img");
+        let foodsName=document.createElement("h2");
+        let foodsPrice=document.createElement("p");
+        let buyOption=document.createElement("a");
+        let imageLayer=document.createElement("div");
+        menuCard.className="menu-card";
+        foodsImage.className="foodimg";
+        foodsImage.src=food.foodImage;
+        foodsName.className="food-name";
+        foodsName.innerHTML=food.foodName;
+        foodsPrice.className="price";
+        foodsPrice.innerHTML=food.foodPrice;
+        buyOption.className="buy";
+        buyOption.innerHTML=`<i class="fa-solid fa-cart-shopping"></i>`;
+        imageLayer.className="layer";
+        menus.appendChild(menuCard);
+        menuCard.appendChild(foodsImage);
+        menuCard.appendChild(imageLayer);
+        menuCard.appendChild(foodsName);
+        menuCard.appendChild(foodsPrice);
+        menuCard.appendChild(buyOption);
+    }else if(food.category=='veg'){
+        let menuCard=document.createElement("div");
+        let foodsImage=document.createElement("img");
+        let foodsName=document.createElement("h2");
+        let foodsPrice=document.createElement("p");
+        let buyOption=document.createElement("a");
+        let imageLayer=document.createElement("div");
+        menuCard.className="menu-card";
+        foodsImage.className="foodimg";
+        foodsImage.src=food.foodImage;
+        foodsName.className="food-name";
+        foodsName.innerHTML=food.foodName;
+        foodsPrice.className="price";
+        foodsPrice.innerHTML=food.foodPrice;
+        buyOption.className="buy";
+        buyOption.innerHTML=`<i class="fa-solid fa-cart-shopping"></i>`;
+        imageLayer.className="layer";
+        vegMenus.appendChild(menuCard);
+        menuCard.appendChild(foodsImage);
+        menuCard.appendChild(imageLayer);
+        menuCard.appendChild(foodsName);
+        menuCard.appendChild(foodsPrice);
+        menuCard.appendChild(buyOption);
+    }else if(food.category=='desserts'){
+        let menuCard=document.createElement("div");
+        let foodsImage=document.createElement("img");
+        let foodsName=document.createElement("h2");
+        let foodsPrice=document.createElement("p");
+        let buyOption=document.createElement("a");
+        let imageLayer=document.createElement("div");
+        menuCard.className="menu-card";
+        foodsImage.className="foodimg";
+        foodsImage.src=food.foodImage;
+        foodsName.className="food-name";
+        foodsName.innerHTML=food.foodName;
+        foodsPrice.className="price";
+        foodsPrice.innerHTML=food.foodPrice;
+        buyOption.className="buy";
+        buyOption.innerHTML=`<i class="fa-solid fa-cart-shopping"></i>`;
+        imageLayer.className="layer";
+        dessertMenus.appendChild(menuCard);
+        menuCard.appendChild(foodsImage);
+        menuCard.appendChild(imageLayer);
+        menuCard.appendChild(foodsName);
+        menuCard.appendChild(foodsPrice);
+        menuCard.appendChild(buyOption);
+    }
 });
