@@ -27,6 +27,7 @@ ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
 // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
 ScrollTrigger.refresh();
 
+var mainSection=document.getElementById("main");
 var cursor=document.getElementById("cursor");
 var homeBtn=document.getElementById("home");
 var foodMenuBtn=document.getElementById("menu");
@@ -37,9 +38,11 @@ var contactBtn=document.getElementById("contact");
 var menuBtn=document.getElementById("menubar");
 var menuSection=document.getElementsByClassName("menu-section");
 var closeMenuBtn=document.getElementById("close-menu");
+var foodMenuSection=document.getElementById("food-menus");
 var menus=document.getElementById("non-veg-menus");
 var vegMenus=document.getElementById("veg-menus");
 var dessertMenus=document.getElementById("desserts-menus");
+var footer=document.getElementById("footer-section");
 
 
 document.addEventListener("mousemove",(dets)=>{
@@ -314,6 +317,69 @@ const foods=[{
     category:"desserts"
     },
 ];
+
+let searchBox=document.getElementById("searchbox");
+let searchBtn=document.getElementById("searchBtn");
+let counter=0;
+searchBtn.addEventListener("click",()=>{
+    counter++;
+    if(counter==1){
+        if(searchBox.value==''){
+            alert("Please write something then search it");
+        }else{
+            foodMenuSection.parentNode.removeChild(foodMenuSection);
+            let searchFoodSection=document.createElement("div");
+            searchFoodSection.className="search-food-section";
+            footer.parentNode.insertBefore(searchFoodSection,footer);
+            let searchValue=document.createElement("h1");
+            searchValue.id="searched-food";
+            searchValue.innerHTML=`Results regarding ${searchBox.value} :`;
+            searchFoodSection.appendChild(searchValue);
+            let query=searchBox.value.toLowerCase();
+            let result=foods.filter((food)=>{
+                return food.foodName.toLowerCase().includes(query);
+            });
+            console.log(result);
+            if(result.length>0){
+                let searchFoods=document.createElement("div");
+                searchFoods.className="search-foods";
+                searchFoodSection.appendChild(searchFoods);
+                result.forEach((food)=>{
+                    let menuCard=document.createElement("div");
+                    let foodsImage=document.createElement("img");
+                    let foodsName=document.createElement("h2");
+                    let foodsPrice=document.createElement("p");
+                    let buyOption=document.createElement("a");
+                    let imageLayer=document.createElement("div");
+                    menuCard.className="menu-card";
+                    foodsImage.className="foodimg";
+                    foodsImage.src=food.foodImage;
+                    foodsName.className="food-name";
+                    foodsName.innerHTML=food.foodName;
+                    foodsPrice.className="price";
+                    foodsPrice.innerHTML=food.foodPrice;
+                    buyOption.className="buy";
+                    buyOption.innerHTML=`<i class="fa-solid fa-cart-shopping"></i>`;
+                    imageLayer.className="layer";
+                    searchFoods.appendChild(menuCard);
+                    menuCard.appendChild(foodsImage);
+                    menuCard.appendChild(imageLayer);
+                    menuCard.appendChild(foodsName);
+                    menuCard.appendChild(foodsPrice);
+                    menuCard.appendChild(buyOption);
+                });
+            }else{
+                let notFound=document.createElement("h1");
+                notFound.innerHTML="No Food Item Found";
+                notFound.style.textAlign="center";
+                searchFoodSection.appendChild(notFound);
+            }
+        }
+    }else if(counter>1){
+        alert("bye")
+    }
+});
+
 
 foods.forEach((food)=>{
     if(food.category=='non veg'){

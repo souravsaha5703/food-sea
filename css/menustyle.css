@@ -89,11 +89,34 @@ body{
     font-size: 2.2rem;
     cursor: pointer;
 }
-#food-menus{
+.search-food-section{
     width: 100%;
-    padding: 50px;
+    padding: 30px;
     display: flex;
     flex-direction: column;
+    gap: 10px;
+}
+#searched-food{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-inline: 20px; 
+}
+.search-foods{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+#food-menus{
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 #heading{
     text-align: center;
@@ -101,6 +124,52 @@ body{
     font-size: 4rem;
     text-decoration: underline;
     color: var(--third-color);
+    margin-top: 60px;
+}
+#search-bar{
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#searchbox{
+    outline: none;
+    border: none;
+    width: 400px;
+    height: 60px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: var(--second-color);
+    font-weight: 400;
+    box-shadow: 5px 5px 5px #ccc,5px 5px 5px #ccc;
+}
+#searchbox::placeholder{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    text-transform: capitalize;
+    color: var(--second-color);
+    font-weight: 400;
+}
+#searchBtn{
+    border: none;
+    outline: none;
+    margin-left: 10px;
+    background-color: var(--second-back-color);
+    font-size: 1.5rem;
+    border-radius: 15px;
+    padding: 17px 20px;
+    box-shadow: 5px 5px 5px #ccc,5px 5px 5px #ccc;
+    cursor: pointer;
+    color: var(--second-color);
+    transition: all 0.5s ease-out;
+}
+#searchBtn:hover{
+    background-color: var(--third-color);
+    color: var(--main-color);
 }
 .food-type{
     font-family: 'Oswald', sans-serif;
