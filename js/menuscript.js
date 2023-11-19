@@ -201,7 +201,7 @@ closeMenuBtn.addEventListener("mouseleave",()=>{
 
 closeMenuBtn.addEventListener("click",()=>{
     gsap.to(menuSection,{
-        right:"-50%",
+        right:"-150%",
         ease:Power3
     });
 });
@@ -306,7 +306,7 @@ const foods=[{
     },
     {
     foodId:14,
-    foodName:"Yellow Mount Cake",
+    foodName:"Yellow Mount",
     foodPrice:"₹60",
     foodImage:'../images/pastry.jpg',
     category:"desserts"
@@ -423,7 +423,9 @@ function createFoodResult(food){
     menuCard.appendChild(foodsName);
     menuCard.appendChild(foodsPrice);
     menuCard.appendChild(buyOption);
-    CartBtnAnimation(buyOption);
+    if(window.innerHeight>530){
+        CartBtnAnimation(buyOption);
+    }
     return menuCard;
 }
 
@@ -452,7 +454,7 @@ function CartBtnAnimation(buyOption){
     });
     addCartBtn.addEventListener("mouseleave",()=>{
         gsap.to(addCartBtn,{
-            width:45,
+            width:40,
             ease:Power3,
             duration:0.5
         });
