@@ -47,7 +47,7 @@ body::-webkit-scrollbar-thumb{
     flex-direction: column;
     gap: 10px;
     top: 0;
-    right:-50%;
+    right:-150%;
     background-color: var(--third-back-color);
     z-index: 50;
 }
@@ -380,4 +380,206 @@ footer img{
     font-family: 'Oswald', sans-serif;
     font-size: 1rem;
     color: #adb5bd; 
+}
+@media (max-width:1230px){
+    #texts{
+        width: 35%;
+    }
+    #texts h1{
+        font-size: 3.5rem;
+    }
+    #hero-images{
+        width: 35%;
+        height: 65%;
+    }
+    .intro h1{
+        width: 35%;
+        font-size: 2rem;
+    }
+    .intro h1 span{
+        font-size: 3.5rem;
+    }
+    .intro .i-images{
+        width: 50%;
+        height: 500px;
+    }
+    .food-cards{
+        width: 300px;
+        height: 350px;
+    }
+}
+@media (max-width:1040px){
+    #texts h1{
+        font-size: 3rem;
+    }
+    .intro h1{
+        font-size: 1.5rem;
+    }
+    #card2{
+        left: 20%;
+    }
+    #card3{
+        left: 45%;
+    }
+    #card4{
+        left: 70%;
+    }
+    .service-cards{
+        width: 170px;
+        height: 170px;
+    }
+    .feedback{
+        width: 250px;
+        height: 200px;
+    }
+    .feedback h3{
+        font-size: 1rem;
+    }
+}
+@media (max-width:991px){
+    #hero{
+        height: 90vh;
+    }
+    #card4{
+        left: 65%;
+    }
+    #texts h1{
+        letter-spacing: 0.8px;
+        font-size: 2.8rem;
+    }
+}
+@media (max-width:830px){
+    #hero{
+        height: 85vh;
+    }
+    .intro h1 span{
+        font-size: 3rem;
+    }
+    .top-dishes-section{
+        height: 120vh;
+    }
+    .top-dishes-section #top-heading{
+        font-size: 2.5rem;
+    }
+    #card2{
+        left: 30%;
+    }
+    #card3{
+        display: none;
+    }
+    #card4{
+        top: 30%;
+        left: 55%;
+    }
+    .service-cards{
+        width: 150px;
+        height: 150px;
+    }
+    .service-cards i{
+        font-size: 1.5rem;
+    }
+    .service-cards p{
+        font-size: 1rem;
+    }
+    .user-feedback-section h1{
+        font-size: 2rem;
+    }
+    .feedback{
+        height: 150px;
+    }
+    footer img{
+        width: 150px;
+    }
+}
+@media (max-width:768px){
+    #hero{
+        gap: 10px;
+    }
+    #hero #texts{
+        width: 40%;
+    }
+    #texts h1{
+        font-size: 2.5rem;
+    }
+    #hero-images{
+        height: 60%;
+    }
+    .intro{
+        flex-direction: column;
+        gap: 50px;
+    }
+    .intro h1{
+        width: 100%;
+        text-align: center;
+        font-size: 2rem;
+    }
+    .intro h1 span{
+        font-size: 3.5rem;
+    }
+    .intro .i-images{
+        width: 100%;
+        height: 800px;
+    }
+    .service-cards{
+        width: 170px;
+        height: 150px;
+    }
+    .service-cards i{
+        font-size: 1.2rem;
+    }
+    .service-cards p{
+        font-size: 0.9rem;
+    }
+}
+@media (max-width:700px){
+    #hero{
+        height: 70vh;
+    }
+    #texts h1{
+        font-size: 2rem;
+    }
+    .menu-section{
+        width: 500px;
+    }
+    #card2{
+        left: 25%;
+    }
+    .service-cards:nth-child(1){
+        display: none;
+    }
+    .feedback:nth-child(4){
+        display: none;
+    }
+    footer{
+        flex-direction: column;
+    }
+    .useful-link{
+        align-items: center;
+        justify-content: center;
+    }
+}
+@media (max-width:636px){
+    .food-cards{
+        width: 250px;
+        height: 300px;
+    }
+    #hero{
+        justify-content: space-between;
+        padding-inline: 50px;
+    }
+    #hero #texts{
+        width: 50%;
+    }
+    #hero-images{
+        width: 40%;
+    }
+    #texts h1{
+        font-size: 1.7rem;
+    }
+    #texts p{
+        font-size: 1.2rem;
+    }
+}
+@media (max-width:550px){
+    
 }
