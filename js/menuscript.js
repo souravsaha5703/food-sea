@@ -43,6 +43,8 @@ var menus=document.getElementById("non-veg-menus");
 var vegMenus=document.getElementById("veg-menus");
 var dessertMenus=document.getElementById("desserts-menus");
 var footer=document.getElementById("footer-section");
+var searchFoodSection=document.getElementById("search-food-section");
+var searchFoods=document.getElementById("search-foods");
 
 
 document.addEventListener("mousemove",(dets)=>{
@@ -318,9 +320,70 @@ const foods=[{
     },
 ];
 
+let searchBar=document.getElementById("search-bar");
 let searchBox=document.getElementById("searchbox");
 let searchBtn=document.getElementById("searchBtn");
+let searchValue=document.createElement("h1");
 let counter=0;
+
+function searchFoodResult(){
+    searchValue.id="searched-food";
+    searchValue.innerHTML=`Results regarding ${searchBox.value} :`;
+    searchFoods.parentNode.insertBefore(searchValue,searchFoods);
+    let query=searchBox.value.toLowerCase();
+    let result=foods.filter((food)=>{
+        return food.foodName.toLowerCase().includes(query);
+    });
+    if(result.length>0){
+        result.forEach((food)=>{
+            let menuCard=document.createElement("div");
+            let foodsImage=document.createElement("img");
+            let foodsName=document.createElement("h2");
+            let foodsPrice=document.createElement("p");
+            let buyOption=document.createElement("a");
+            let imageLayer=document.createElement("div");
+            menuCard.className="menu-card";
+            foodsImage.className="foodimg";
+            foodsImage.src=food.foodImage;
+            foodsName.className="food-name";
+            foodsName.innerHTML=food.foodName;
+            foodsPrice.className="price";
+            foodsPrice.innerHTML=food.foodPrice;
+            buyOption.className="buy";
+            buyOption.innerHTML=`<i class="fa-solid fa-cart-shopping"></i>`;
+            imageLayer.className="layer";
+            searchFoods.appendChild(menuCard);
+            menuCard.appendChild(foodsImage);
+            menuCard.appendChild(imageLayer);
+            menuCard.appendChild(foodsName);
+            menuCard.appendChild(foodsPrice);
+            menuCard.appendChild(buyOption);
+        });
+    }else{
+        let notFound=document.createElement("h1");
+        notFound.innerHTML="No Food Item Found";
+        notFound.style.textAlign="center";
+        searchFoodSection.appendChild(notFound);
+    }
+}
+
+searchBar.addEventListener('submit',(e)=>{
+    e.preventDefault();
+    counter++;
+    if(counter==1){
+        if(searchBox.value==''){
+            alert("Please write something then search it");
+        }else{
+            foodMenuSection.parentNode.removeChild(foodMenuSection);
+            searchFoodResult();
+        }
+    }else if(counter>1){
+        searchValue.innerHTML='';
+        searchFoods.innerHTML='';
+        searchFoodResult();
+    }
+});
+
 searchBtn.addEventListener("click",()=>{
     counter++;
     if(counter==1){
@@ -328,128 +391,50 @@ searchBtn.addEventListener("click",()=>{
             alert("Please write something then search it");
         }else{
             foodMenuSection.parentNode.removeChild(foodMenuSection);
-            let searchFoodSection=document.createElement("div");
-            searchFoodSection.className="search-food-section";
-            footer.parentNode.insertBefore(searchFoodSection,footer);
-            let searchValue=document.createElement("h1");
-            searchValue.id="searched-food";
-            searchValue.innerHTML=`Results regarding ${searchBox.value} :`;
-            searchFoodSection.appendChild(searchValue);
-            let query=searchBox.value.toLowerCase();
-            let result=foods.filter((food)=>{
-                return food.foodName.toLowerCase().includes(query);
-            });
-            console.log(result);
-            if(result.length>0){
-                let searchFoods=document.createElement("div");
-                searchFoods.className="search-foods";
-                searchFoodSection.appendChild(searchFoods);
-                result.forEach((food)=>{
-                    let menuCard=document.createElement("div");
-                    let foodsImage=document.createElement("img");
-                    let foodsName=document.createElement("h2");
-                    let foodsPrice=document.createElement("p");
-                    let buyOption=document.createElement("a");
-                    let imageLayer=document.createElement("div");
-                    menuCard.className="menu-card";
-                    foodsImage.className="foodimg";
-                    foodsImage.src=food.foodImage;
-                    foodsName.className="food-name";
-                    foodsName.innerHTML=food.foodName;
-                    foodsPrice.className="price";
-                    foodsPrice.innerHTML=food.foodPrice;
-                    buyOption.className="buy";
-                    buyOption.innerHTML=`<i class="fa-solid fa-cart-shopping"></i>`;
-                    imageLayer.className="layer";
-                    searchFoods.appendChild(menuCard);
-                    menuCard.appendChild(foodsImage);
-                    menuCard.appendChild(imageLayer);
-                    menuCard.appendChild(foodsName);
-                    menuCard.appendChild(foodsPrice);
-                    menuCard.appendChild(buyOption);
-                });
-            }else{
-                let notFound=document.createElement("h1");
-                notFound.innerHTML="No Food Item Found";
-                notFound.style.textAlign="center";
-                searchFoodSection.appendChild(notFound);
-            }
+            searchFoodResult();
         }
     }else if(counter>1){
-        alert("bye")
+        searchValue.innerHTML='';
+        searchFoods.innerHTML='';
+        searchFoodResult();
     }
 });
+
+function createFoodResult(food){
+    let menuCard=document.createElement("div");
+    let foodsImage=document.createElement("img");
+    let foodsName=document.createElement("h2");
+    let foodsPrice=document.createElement("p");
+    let buyOption=document.createElement("a");
+    let imageLayer=document.createElement("div");
+    menuCard.className="menu-card";
+    foodsImage.className="foodimg";
+    foodsImage.src=food.foodImage;
+    foodsName.className="food-name";
+    foodsName.innerHTML=food.foodName;
+    foodsPrice.className="price";
+    foodsPrice.innerHTML=food.foodPrice;
+    buyOption.className="buy";
+    buyOption.innerHTML=`<i class="fa-solid fa-cart-shopping"></i>`;
+    imageLayer.className="layer";
+    menuCard.appendChild(foodsImage);
+    menuCard.appendChild(imageLayer);
+    menuCard.appendChild(foodsName);
+    menuCard.appendChild(foodsPrice);
+    menuCard.appendChild(buyOption);
+    return menuCard;
+}
 
 
 foods.forEach((food)=>{
     if(food.category=='non veg'){
-        let menuCard=document.createElement("div");
-        let foodsImage=document.createElement("img");
-        let foodsName=document.createElement("h2");
-        let foodsPrice=document.createElement("p");
-        let buyOption=document.createElement("a");
-        let imageLayer=document.createElement("div");
-        menuCard.className="menu-card";
-        foodsImage.className="foodimg";
-        foodsImage.src=food.foodImage;
-        foodsName.className="food-name";
-        foodsName.innerHTML=food.foodName;
-        foodsPrice.className="price";
-        foodsPrice.innerHTML=food.foodPrice;
-        buyOption.className="buy";
-        buyOption.innerHTML=`<i class="fa-solid fa-cart-shopping"></i>`;
-        imageLayer.className="layer";
-        menus.appendChild(menuCard);
-        menuCard.appendChild(foodsImage);
-        menuCard.appendChild(imageLayer);
-        menuCard.appendChild(foodsName);
-        menuCard.appendChild(foodsPrice);
-        menuCard.appendChild(buyOption);
+        let foodCard=createFoodResult(food);
+        menus.appendChild(foodCard);
     }else if(food.category=='veg'){
-        let menuCard=document.createElement("div");
-        let foodsImage=document.createElement("img");
-        let foodsName=document.createElement("h2");
-        let foodsPrice=document.createElement("p");
-        let buyOption=document.createElement("a");
-        let imageLayer=document.createElement("div");
-        menuCard.className="menu-card";
-        foodsImage.className="foodimg";
-        foodsImage.src=food.foodImage;
-        foodsName.className="food-name";
-        foodsName.innerHTML=food.foodName;
-        foodsPrice.className="price";
-        foodsPrice.innerHTML=food.foodPrice;
-        buyOption.className="buy";
-        buyOption.innerHTML=`<i class="fa-solid fa-cart-shopping"></i>`;
-        imageLayer.className="layer";
-        vegMenus.appendChild(menuCard);
-        menuCard.appendChild(foodsImage);
-        menuCard.appendChild(imageLayer);
-        menuCard.appendChild(foodsName);
-        menuCard.appendChild(foodsPrice);
-        menuCard.appendChild(buyOption);
+        let foodCard=createFoodResult(food);
+        vegMenus.appendChild(foodCard);
     }else if(food.category=='desserts'){
-        let menuCard=document.createElement("div");
-        let foodsImage=document.createElement("img");
-        let foodsName=document.createElement("h2");
-        let foodsPrice=document.createElement("p");
-        let buyOption=document.createElement("a");
-        let imageLayer=document.createElement("div");
-        menuCard.className="menu-card";
-        foodsImage.className="foodimg";
-        foodsImage.src=food.foodImage;
-        foodsName.className="food-name";
-        foodsName.innerHTML=food.foodName;
-        foodsPrice.className="price";
-        foodsPrice.innerHTML=food.foodPrice;
-        buyOption.className="buy";
-        buyOption.innerHTML=`<i class="fa-solid fa-cart-shopping"></i>`;
-        imageLayer.className="layer";
-        dessertMenus.appendChild(menuCard);
-        menuCard.appendChild(foodsImage);
-        menuCard.appendChild(imageLayer);
-        menuCard.appendChild(foodsName);
-        menuCard.appendChild(foodsPrice);
-        menuCard.appendChild(buyOption);
+        let foodCard=createFoodResult(food);
+        dessertMenus.appendChild(foodCard);
     }
 });
