@@ -350,7 +350,7 @@ function searchFoodResult(){
             foodsPrice.className="price";
             foodsPrice.innerHTML=food.foodPrice;
             buyOption.className="buy";
-            buyOption.innerHTML=`<i class="fa-solid fa-cart-shopping"></i>`;
+            buyOption.innerHTML=`<i class="fa-solid fa-cart-shopping"></i> Add to Cart`;
             imageLayer.className="layer";
             searchFoods.appendChild(menuCard);
             menuCard.appendChild(foodsImage);
@@ -358,6 +358,7 @@ function searchFoodResult(){
             menuCard.appendChild(foodsName);
             menuCard.appendChild(foodsPrice);
             menuCard.appendChild(buyOption);
+            CartBtnAnimation(buyOption);
         });
     }else{
         let notFound=document.createElement("h1");
@@ -415,13 +416,14 @@ function createFoodResult(food){
     foodsPrice.className="price";
     foodsPrice.innerHTML=food.foodPrice;
     buyOption.className="buy";
-    buyOption.innerHTML=`<i class="fa-solid fa-cart-shopping"></i>`;
+    buyOption.innerHTML=` <i class="fa-solid fa-cart-shopping"></i> Add to Cart`;
     imageLayer.className="layer";
     menuCard.appendChild(foodsImage);
     menuCard.appendChild(imageLayer);
     menuCard.appendChild(foodsName);
     menuCard.appendChild(foodsPrice);
     menuCard.appendChild(buyOption);
+    CartBtnAnimation(buyOption);
     return menuCard;
 }
 
@@ -438,3 +440,21 @@ foods.forEach((food)=>{
         dessertMenus.appendChild(foodCard);
     }
 });
+
+function CartBtnAnimation(buyOption){
+    let addCartBtn=buyOption;
+    addCartBtn.addEventListener("mouseenter",()=>{
+        gsap.to(addCartBtn,{
+            width:165,
+            ease:Power3,
+            duration:0.5
+        });
+    });
+    addCartBtn.addEventListener("mouseleave",()=>{
+        gsap.to(addCartBtn,{
+            width:45,
+            ease:Power3,
+            duration:0.5
+        });
+    });
+}

@@ -113,7 +113,8 @@ body{
 }
 #food-menus{
     width: 100%;
-    padding: 30px;
+    padding-block: 10px;
+    padding-inline: 30px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -259,11 +260,15 @@ body{
     font-size: 1.2rem;
     font-family: 'Poppins', sans-serif;
     background-color: var(--second-back-color);
-    padding: 5px 20px;
+    width: 45px;
+    padding-inline: 10px;
+    padding-top: 5px;
+    height: 40px;
     border-radius: 10px;
-    font-weight: 600;
+    font-weight: 400;
     color: var(--second-color);
-    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    cursor: pointer;
 }
 .menu-card .buy:hover{
     background-color: var(--main-back-color);
