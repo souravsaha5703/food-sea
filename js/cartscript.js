@@ -1,21 +1,20 @@
-// let foodString=localStorage.getItem('foodData');
+let foodString=localStorage.getItem('foodData');
 
-// let foodArray=JSON.parse(foodString);
+let foodArray=JSON.parse(foodString);
 
-// let query=window.location.search;
+let foodIdReceived=window.location.search;
 
-// var params=new URLSearchParams(query);
+var params=new URLSearchParams(foodIdReceived);
 
-// var data=params.get('id');
+var data=params.get('id');
 
-// console.log(foodArray);
-//  for (let index = 0; index < foodArray.length; index++) {
-//     if(data==foodArray[index].foodId){
-//         console.log("heyy");
-//     }
-//     // console.log(foodArray[index].foodName);
-    
-//  }
+
+ for (let index = 0; index < foodArray.length; index++) {
+    if(data==foodArray[index].foodId){
+        let foodDetails=data;
+        displayData(foodDetails);
+    }
+ }
 var mainSection=document.getElementById("main");
 var cursor=document.getElementById("cursor");
 var homeBtn=document.getElementById("home");
@@ -27,6 +26,7 @@ var contactBtn=document.getElementById("contact");
 var menuBtn=document.getElementById("menubar");
 var menuSection=document.getElementsByClassName("menu-section");
 var closeMenuBtn=document.getElementById("close-menu");
+var foodItemsBox=document.getElementById("food-items");
 
 
 
@@ -188,3 +188,65 @@ closeMenuBtn.addEventListener("click",()=>{
         ease:Power3
     });
 });
+
+let plusBtn=document.createElement("input");
+plusBtn.className="plus";
+plusBtn.type="button";
+plusBtn.value="+";
+
+let minusBtn=document.createElement("input");
+minusBtn.className="minus";
+minusBtn.type="button";
+minusBtn.value="-";
+
+let quantityBox=document.createElement("input");
+quantityBox.type="text";
+quantityBox.value="1";
+quantityBox.className="qty";
+quantityBox.id="qtybox";
+quantityBox.disabled=true;
+
+let quantityForm=document.createElement("form");
+quantityForm.id="myform";
+quantityForm.className="quantity";
+quantityForm.action="#";
+
+quantityForm.appendChild(minusBtn);
+quantityForm.appendChild(quantityBox);
+quantityForm.appendChild(plusBtn);
+
+function displayData(foodDetails){
+    let foodData=foodDetails;
+    let items=document.createElement("div");
+    items.className="item";
+    let foodImage=document.createElement("img");
+    foodImage.className="itemImg";
+    foodImage.src=foodArray[foodData].foodImage;
+    
+}
+
+// var plusBtn=document.querySelectorAll(".plus");
+// var minusBtn=document.querySelectorAll(".minus");
+// var quantityBox=document.getElementById("qtybox");
+// var quantity=0;
+// quantityBox.disabled=true;
+
+// plusBtn.forEach((plusButton)=>{
+//     plusButton.addEventListener("click",()=>{
+//         let quantityValue=Number(quantityBox.value);
+//         quantityBox.value=quantityValue+1;
+//         quantity=quantityBox.value;
+//     });
+// });
+
+// minusBtn.forEach((minusButton)=>{
+//     minusButton.addEventListener("click",()=>{
+//         let quantityValue=Number(quantityBox.value);
+//         if(quantityValue==1){
+//             quantityBox.value=1; 
+//         }else{
+//             quantityBox.value=quantityValue-1;
+//             quantity=quantityBox.value;
+//         }
+//     });
+// });
