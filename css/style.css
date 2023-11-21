@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Borel&family=Oswald:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Borel&family=Nanum+Gothic&family=Oswald:wght@400;600;700&family=Poppins:wght@400;600&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -33,6 +33,18 @@ body::-webkit-scrollbar-thumb{
     border-radius: 50%;
     position: fixed;
     z-index: 100;
+}
+#menubar{
+    font-size: 1.5rem;
+    color: var(--third-color);
+    background-color: var(--main-color);
+    padding: 10px 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: fixed;
+    z-index: 50;
+    top: 30px;
+    right: 50px;
 }
 #main{
     width: 100%;
@@ -88,278 +100,269 @@ body::-webkit-scrollbar-thumb{
 }
 nav{
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     position: fixed;
-    padding-inline: 100px;
-    padding-block: 10px;
-    z-index: 10;
 }
 nav img{
-    width: 110px;
-    height: 110px;
+    width: 120px;
+    margin-left: 50px;
 }
-#menubar{
-    font-size: 1.5rem;
-    color: var(--third-color);
-    background-color: var(--main-color);
-    padding: 10px 10px;
-    border-radius: 50%;
-    cursor: pointer;
-    position: fixed;
-    z-index: 50;
-    top: 30px;
-    right: 50px;
+#heading-text{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
-#hero{
+.text-container{
+    width: 1000px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-left: 20px;
+    overflow: hidden;
+    position: relative;
+}
+.text-container #bannerimg{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50px;
+}
+.text-container h1{
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 7rem;
+    font-weight: 400;
+    letter-spacing: 1.4px;
+    color: var(--second-color);
+}
+.text-container h1 span{
+    font-style: italic;
+    font-weight: 600;
+}
+.intro{
     width: 100%;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 10px;
+    margin-top: 20px;
     gap: 50px;
-    background-color: var(--main-color);
 }
-#hero #texts{
-    width: 40%;
+.intro-image{
+    width: 500px;
     height: 80%;
-    display: flex;
-    align-items: start;
-    padding-inline: 20px;
-    padding-block: 50px;
-    flex-direction: column;
+    border-radius: 30px;
+    overflow: hidden;
 }
-#texts h1{
+.intro-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.text-intro{
+    width: 600px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+.text-intro h1{
     font-family: 'Anton', sans-serif;
     font-size: 4.5rem;
-    color: var(--second-color);
+    color: var(--third-color);
     letter-spacing: 1.5px;
 }
-#texts p{
-    margin-top: 10px;
+.text-intro p{
     font-family: 'Oswald', sans-serif;
-    font-size: 1.5rem;
-    color: var(--second-color);
-    font-weight: 400;
+    font-size: 3rem;
+    text-align: center;
 }
-#texts p i{
-    color: green;
+#text-scroller{
+    padding-block: 30px;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+#text-scroller::-webkit-scrollbar{
+    display: none;
+}
+#first-texts{
+    display: inline-block;
+    white-space: nowrap;
+    animation: scroll 10s linear infinite;
     margin-right: 10px;
 }
-#hero-images{
-    width: 30%;
-    height: 70%;
-    border-radius: 50px;
-    overflow: hidden;
+#second-texts{
+    display: inline-block;
+    white-space: nowrap;
+    animation: scroll 10s linear infinite;
+    margin-right: 10px;
 }
-#hero-images img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+#third-texts{
+    display: inline-block;
+    white-space: nowrap;
+    animation: scroll 20s linear infinite;
+    margin-right: 10px;
 }
-.intro{
-    width: 100%;
-    padding: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    gap: 20px;
-}
-.intro h1{
-    width: 40%;
-    font-family: 'Oswald', sans-serif;
-    font-size: 2.5rem;
-    color: var(--second-color);
-    letter-spacing: 0.6px;
+#text-scroller h1{
+    font-family: 'Nanum Gothic', sans-serif;
+    display: inline-block;
+    font-size: 6rem; 
     font-weight: 400;
-    overflow: hidden;
+    font-style: italic;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--second-color);
+    transition: all linear 0.5s;
 }
-.intro h1 span{
-    color: var(--main-back-color);
-    font-weight: 600;
-    font-size: 4rem;
+#text-scroller h1:hover{
+    color: var(--second-color);
 }
-.intro .i-images{
-    width: 46%;
-    height: 600px;
+@keyframes scroll {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translate(-100%);
+    }
 }
-.i-images img{
+.top-foods-container{
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.top-dishes-section{
-    width: 100%;
-    height: 150vh;
+    padding: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 50px;
-    gap: 10px;
     background-color: var(--main-color);
+    border-radius: 60px 60px 0px 0px;
 }
-.top-dishes-section #top-heading{
+.top-foods-container h1{
+    font-family: 'Oswald', sans-serif;
     text-align: center;
-    font-family: 'Oswald', sans-serif;
-    color: var(--second-back-color);
-    font-size: 3rem;
-    font-weight: 700;
+    font-weight: 600;
     text-decoration: underline;
-    margin-bottom: 20px;
+    font-size: 3rem;
+    color: var(--second-back-color);
 }
-.top-dishes-section #top-heading span{
-    color: var(--main-back-color);
-}
-.top-dishes-section .list{
-    position: relative;
-    width: 100%;
-    height: 100%;
-    padding: 50px;
-    display: flex;
-    gap: 20px;
-}
-.food-cards{
-    position: absolute;
-    width: 350px;
-    height: 400px;
-    border-radius: 20px;
-    overflow: hidden;
-}
-.cards{
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-.food-cards img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-#card1{
-    top: 1%;
-    left: 1%;
-}
-#card2{
-    top: 15%;
-    left: 25%;
-}
-#card3{
-    top: 30%;
-    left: 50%;
-}
-#card4{
-    top: 45%;
-    left: 75%;
-}
-.top-dishes-section #menu-btn{
-    text-decoration: none;
-    color: var(--main-back-color);
-    font-family: 'Oswald', sans-serif;
-    padding: 15px 25px;
-    border-radius: 15px;
-    font-size: 1.5rem;
-    font-weight: 400;
-    margin-top: 10px;
-    border: 2px solid var(--main-back-color);
-    transition: all 0.3s ease-in-out;
-}
-.top-dishes-section #menu-btn:hover{
-    background-color: var(--main-back-color);
-    color: var(--main-color);
-}
-.services{
+.images{
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 50px;
+    padding-block: 50px;
     gap: 50px;
 }
-.service-cards{
-    width: 200px;
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background: linear-gradient(45deg,var(--second-back-color),var(--main-color));
-    border-radius: 50%;
-    gap: 20px;
-    transition: all 0.1s ease-in-out;
+.images img{
+    width: 400px;
+    height: 500px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 20px;
 }
-.service-cards i{
-    font-size: 1.7rem;
-    color: var(--second-color);
-}
-.service-cards p{
-    font-family: 'Oswald', sans-serif;
-    font-weight: 600;
-    color: var(--second-color);
-    font-size: 1.2rem;
-}
-.service-cards:hover{
-    background: var(--second-back-color);
-}
-.user-feedback-section{
+.service-container{
     width: 100%;
+    padding: 30px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    padding: 20px;
-    gap: 15px;
+    gap: 10px;
 }
-.user-feedback-section h1{
-    font-family: 'Oswald', sans-serif;
-    text-align: center;
-    color: var(--main-back-color);
+.service-container h1{
+    font-family: 'Nanum Gothic', sans-serif;
     font-weight: 600;
-    font-size: 2.5rem;
+    font-size: 6rem;
+    width: 50%;
 }
-.feedbacks{
+.service-container h2{
+    font-family: 'Nanum Gothic', sans-serif;
+    font-weight: 400;
+    font-size: 6rem;
+    width: 50%;
+    font-style: italic;
+}
+.service-section{
     width: 100%;
     padding: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 50px;
 }
-.feedback{
-    width: 300px;
+.services{
+    width: 250px;
     height: 250px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 10px;
-    background-color: #fff;
-    border-radius: 20px;
-    box-shadow: 10px 0px 20px #ededed,-10px 0px 20px  #ededed;
-}
-.feedback h3{
-    font-family: 'Oswald', sans-serif;
-    font-weight: 400;
-    font-size: 1.3rem;
+    gap: 10px;
+    border: 1px solid var(--second-color);
+    border-radius: 50%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
     text-align: center;
     color: var(--second-color);
+    text-transform: capitalize;
+    transition: all 0.5s ease-out;
 }
-.feedback .stars{
-    margin-top: 20px;
+.services:hover{
+    color: var(--main-color);
+    background-color: var(--second-color);
+}
+.feedback-section{
+    width: 100%;
+    background-color: var(--third-back-color);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+.feedbacks{
+    width: 250px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 20px;
+    gap: 15px;
+    background-color: #fff;
+    box-shadow: 10px 10px 5px #ccc;
+}
+.feedbacks .fa-user{
+    font-size: 2rem;
+    color: var(--second-color);
+}
+.ratings{
+    display: flex;
+    gap: 8px;
+}
+.ratings i{
     color: var(--second-back-color);
+    font-size: 1.5rem;
+}
+.feedbacks p{
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: capitalize;
 }
 footer{
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    padding: 20px;
-    background-color: var(--third-back-color);
-}
-footer img{
-    width: 200px;
+    padding: 50px 20px;
+    background-color: var(--second-color);
 }
 .useful-link{
     display: flex;
@@ -367,219 +370,230 @@ footer img{
 }
 .useful-link h1{
     font-family: 'Oswald', sans-serif;
-    font-size: 1.5rem;
-    color: var(--second-color);
+    font-size: 2rem;
+    color: var(--main-color);
 }
 .useful-link a{
     text-decoration: none;
     font-family: 'Oswald', sans-serif;
-    font-size: 1rem;
+    font-size: 1.5rem;
     color: #adb5bd;
 }
 .useful-link p{
     font-family: 'Oswald', sans-serif;
-    font-size: 1rem;
+    font-size: 1.5rem;
     color: #adb5bd; 
 }
-@media (max-width:1230px){
-    #texts{
-        width: 35%;
-    }
-    #texts h1{
-        font-size: 3.5rem;
-    }
-    #hero-images{
-        width: 35%;
-        height: 65%;
-    }
-    .intro h1{
-        width: 35%;
-        font-size: 2rem;
-    }
-    .intro h1 span{
-        font-size: 3.5rem;
-    }
-    .intro .i-images{
-        width: 50%;
-        height: 500px;
-    }
-    .food-cards{
-        width: 300px;
-        height: 350px;
-    }
+.address{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
-@media (max-width:1040px){
-    #texts h1{
+.address h2{
+    font-family: 'Oswald', sans-serif;
+    color: var(--main-color);
+    font-size: 1rem;
+    text-align: center;
+    font-weight: 400;
+}
+@media (max-width:1028px){
+    .text-container{
+        width: 900px;
+    }
+    .text-container h1{
+        font-size: 6rem;
+    }
+    .intro-image{
+        width: 400px;
+    }
+    .text-intro{
+        width: 400px;
+    }
+    .text-intro h1{
         font-size: 3rem;
     }
-    .intro h1{
-        font-size: 1.5rem;
+    .text-intro p{
+        font-size: 2rem;
     }
-    #card2{
-        left: 20%;
+    .images img{
+        width: 300px;
+        height: 400px;
     }
-    #card3{
-        left: 45%;
+    .service-container h1{
+        font-size: 4.5rem;
     }
-    #card4{
-        left: 70%;
+    .service-container h2{
+        font-size: 4.5rem;
     }
-    .service-cards{
-        width: 170px;
-        height: 170px;
-    }
-    .feedback{
-        width: 250px;
+    .services{
+        width: 200px;
         height: 200px;
     }
-    .feedback h3{
-        font-size: 1rem;
-    }
-}
-@media (max-width:991px){
-    #hero{
-        height: 90vh;
-    }
-    #card4{
-        left: 65%;
-    }
-    #texts h1{
-        letter-spacing: 0.8px;
-        font-size: 2.8rem;
-    }
-}
-@media (max-width:830px){
-    #hero{
-        height: 85vh;
-    }
-    .intro h1 span{
-        font-size: 3rem;
-    }
-    .top-dishes-section{
-        height: 120vh;
-    }
-    .top-dishes-section #top-heading{
-        font-size: 2.5rem;
-    }
-    #card2{
-        left: 30%;
-    }
-    #card3{
-        display: none;
-    }
-    #card4{
-        top: 30%;
-        left: 55%;
-    }
-    .service-cards{
-        width: 150px;
-        height: 150px;
-    }
-    .service-cards i{
+    .useful-link h1{
         font-size: 1.5rem;
     }
-    .service-cards p{
+    .useful-link a{
         font-size: 1rem;
     }
-    .user-feedback-section h1{
-        font-size: 2rem;
+    .useful-link p{
+        font-size: 1rem;
     }
-    .feedback{
-        height: 150px;
+}
+@media (max-width:903px){
+    .text-container{
+        width: 700px;
     }
-    footer img{
-        width: 150px;
+    .text-container h1{
+        font-size: 5rem;
     }
 }
 @media (max-width:768px){
-    #hero{
-        gap: 10px;
+    .text-container h1{
+        font-size: 4rem;
     }
-    #hero #texts{
-        width: 40%;
-    }
-    #texts h1{
-        font-size: 2.5rem;
-    }
-    #hero-images{
+    .intro-image{
+        width: 350px;
         height: 60%;
     }
-    .intro{
-        flex-direction: column;
-        gap: 50px;
+    .text-intro{
+        width: 300px;
     }
-    .intro h1{
-        width: 100%;
-        text-align: center;
-        font-size: 2rem;
+    .text-intro h1{
+        font-size: 2.5rem;
     }
-    .intro h1 span{
-        font-size: 3.5rem;
+    .text-intro p{
+        font-size: 1.7rem;
     }
-    .intro .i-images{
-        width: 100%;
-        height: 800px;
-    }
-    .service-cards{
-        width: 170px;
-        height: 150px;
-    }
-    .service-cards i{
-        font-size: 1.2rem;
-    }
-    .service-cards p{
-        font-size: 0.9rem;
+    .service-section{
+        gap: 30px;
     }
 }
-@media (max-width:700px){
-    #hero{
-        height: 70vh;
-    }
-    #texts h1{
-        font-size: 2rem;
-    }
+@media (max-width:686px){
     .menu-section{
         width: 500px;
+        right: -150%;
     }
-    #card2{
-        left: 25%;
+    .text-container{
+        width: 500px;
     }
-    .service-cards:nth-child(1){
-        display: none;
+    .text-container h1{
+        font-size: 3rem;
     }
-    .feedback:nth-child(4){
-        display: none;
+    .intro{
+        height: 80vh;
+    }
+    .intro-image{
+        height: 80%;
+    }
+    .top-foods-container h1{
+        font-size: 2rem;
+    }
+    .images img{
+        width: 200px;
+        height: 300px;
+    }
+    .services{
+        width: 150px;
+        height: 150px;
+        font-size: 1rem;
     }
     footer{
         flex-direction: column;
+        gap: 50px;
     }
     .useful-link{
         align-items: center;
         justify-content: center;
     }
 }
-@media (max-width:636px){
-    .food-cards{
-        width: 250px;
-        height: 300px;
+@media (max-width:526px){
+    .menu-section{
+        width: 450px;
     }
-    #hero{
-        justify-content: space-between;
-        padding-inline: 50px;
+    #heading-text{
+        height: 75vh;
     }
-    #hero #texts{
-        width: 50%;
+    .text-container{
+        width: 100%;
     }
-    #hero-images{
-        width: 40%;
+    .text-container h1{
+        font-size: 2.5rem;
     }
-    #texts h1{
-        font-size: 1.7rem;
+    .text-container #bannerimg{
+        width: 60px;
+        height: 60px;
     }
-    #texts p{
-        font-size: 1.2rem;
+    .intro-image{
+        display: none;
+    }
+    .text-intro{
+        width: 100%;
+    }
+    .text-intro h1{
+        font-size: 2rem;
+    }
+    .intro{
+        height: fit-content;
+    }
+    .services:nth-child(3){
+        display: none;
     }
 }
-@media (max-width:550px){
-    
+@media (max-width:425px){
+    .menu-section{
+        width: 325px;
+    }
+    #heading-text{
+        height: 65vh;
+    }
+    .text-container{
+        width: 100%;
+    }
+    .text-container h1{
+        font-size: 2rem;
+    }
+    .text-container #bannerimg{
+        width: 40px;
+        height: 40px;
+    }
+    .text-intro h1{
+        font-size: 1.5rem;
+    }
+    .text-intro p{
+        font-size: 1.2rem;
+    }
+    #text-scroller h1{
+        font-size: 4rem; 
+    }
+    .images img{
+        width: 150px;
+        height: 200px;
+    }
+    .service-container h1{
+        font-size: 3rem;
+    }
+    .service-container h2{
+        font-size: 3rem;
+    }
+    .services{
+        width: 120px;
+        height: 120px;
+        font-size: 0.8rem;
+    }
+    .service-container h1{
+        width: 100%;
+    }
+    .service-container h2{
+        width: 100%;
+    }
+}
+@media (max-width:325px){
+    .text-container h1{
+        font-size: 1.5rem;
+    }
+    .images img{
+        width: 100px;
+        height: 150px;
+    }
 }

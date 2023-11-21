@@ -28,10 +28,6 @@ ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
 ScrollTrigger.refresh();
 
 var cursor=document.getElementById("cursor");
-var foodCard1=document.getElementById("card1");
-var foodCard2=document.getElementById("card2");
-var foodCard3=document.getElementById("card3");
-var foodCard4=document.getElementById("card4");
 var homeBtn=document.getElementById("home");
 var foodMenuBtn=document.getElementById("menu");
 var bookTableBtn=document.getElementById("booktable");
@@ -41,6 +37,10 @@ var contactBtn=document.getElementById("contact");
 var menuBtn=document.getElementById("menubar");
 var menuSection=document.getElementsByClassName("menu-section");
 var closeMenuBtn=document.getElementById("close-menu");
+var image1=document.getElementById("image1");
+var image2=document.getElementById("image2");
+var image3=document.getElementById("image3");
+var image4=document.getElementById("image4");
 
 document.addEventListener("mousemove",(dets)=>{
     cursor.style.left=dets.x+"px";
@@ -196,7 +196,7 @@ closeMenuBtn.addEventListener("mouseleave",()=>{
 
 closeMenuBtn.addEventListener("click",()=>{
     gsap.to(menuSection,{
-        right:"-50%",
+        right:"-150%",
         ease:Power3
     });
 });
@@ -213,44 +213,32 @@ gsap.from("#menubar",{
     ease:Power3,
     opacity:0
 });
-Shery.textAnimate("#texts h1", {
-    style: 2,
-    y: 10,
-    delay: 0.1,
-    duration: 2,
-    ease: "cubic-bezier(0.23, 1, 0.320, 1)",
-    multiplier: 0.1,
-});
-gsap.from("#hero-images img",{
-    x:100,
-    duration:2,
+gsap.from(".text-container h1",{
+    y:120,
+    duration:1,
     ease:Power3,
-    opacity:0
+    delay:0.5
 });
-gsap.from("#sintro",{
-    x:-50,
-    duration:2,
+gsap.from("#bannerimg",{
+    y:120,
+    duration:1,
+    ease:Power3,
+    delay:0.4
+});
+gsap.from(".intro-image img",{
+    x:-100,
+    duration:3,
     opacity:0,
-    ease:Power3,
+    delay:0.4,
     scrollTrigger:{
-        trigger:"#sintro",
+        trigger:".intro-image img",
         scroller:"#main",
         start:"top 80%",
         end:"top 90%",
-        scrub:2
+        scrub:2,
     }
 });
-Shery.imageEffect(".i-images", {
-    style: 4,
-    /*optional parameters
-    these parameter dose not applies to custom scroll trigger callback */
-    scrollSnapping: true,
-    scrollSpeed: 7,
-    touchSpeed: 8,
-    damping: 7,
-});
-
-foodCard1.addEventListener("mouseenter",()=>{
+image1.addEventListener("mouseenter",()=>{
     cursor.innerHTML="Explore";
     cursor.style.color="#fff";
     cursor.style.display="flex";
@@ -263,7 +251,7 @@ foodCard1.addEventListener("mouseenter",()=>{
         ease:Power3
     });
 });
-foodCard1.addEventListener("mouseleave",()=>{
+image1.addEventListener("mouseleave",()=>{
     cursor.innerHTML="";
     gsap.to(cursor,{
         width:10,
@@ -271,7 +259,7 @@ foodCard1.addEventListener("mouseleave",()=>{
         ease:Power3
     });
 });
-foodCard2.addEventListener("mouseenter",()=>{
+image2.addEventListener("mouseenter",()=>{
     cursor.innerHTML="Explore";
     cursor.style.color="#fff";
     cursor.style.display="flex";
@@ -284,7 +272,7 @@ foodCard2.addEventListener("mouseenter",()=>{
         ease:Power3
     });
 });
-foodCard2.addEventListener("mouseleave",()=>{
+image2.addEventListener("mouseleave",()=>{
     cursor.innerHTML=""
     gsap.to(cursor,{
         width:10,
@@ -292,7 +280,7 @@ foodCard2.addEventListener("mouseleave",()=>{
         ease:Power3
     });
 });
-foodCard3.addEventListener("mouseenter",()=>{
+image3.addEventListener("mouseenter",()=>{
     cursor.innerHTML="Explore";
     cursor.style.color="#fff";
     cursor.style.display="flex";
@@ -305,7 +293,7 @@ foodCard3.addEventListener("mouseenter",()=>{
         ease:Power3
     });
 });
-foodCard3.addEventListener("mouseleave",()=>{
+image3.addEventListener("mouseleave",()=>{
     cursor.innerHTML=""
     gsap.to(cursor,{
         width:10,
@@ -313,7 +301,7 @@ foodCard3.addEventListener("mouseleave",()=>{
         ease:Power3
     });
 });
-foodCard4.addEventListener("mouseenter",()=>{
+image4.addEventListener("mouseenter",()=>{
     cursor.innerHTML="Explore";
     cursor.style.color="#fff";
     cursor.style.display="flex";
@@ -326,7 +314,7 @@ foodCard4.addEventListener("mouseenter",()=>{
         ease:Power3
     });
 });
-foodCard4.addEventListener("mouseleave",()=>{
+image4.addEventListener("mouseleave",()=>{
     cursor.innerHTML=""
     gsap.to(cursor,{
         width:10,
@@ -334,15 +322,38 @@ foodCard4.addEventListener("mouseleave",()=>{
         ease:Power3
     });
 });
-gsap.to(".food-cards",{
-    y:-30,
-    duration:2,
-    ease:Power3,
+gsap.from(".text-intro h1",{
+    y:50,
+    opacity:0,
+    duration:1.5,
     scrollTrigger:{
-        trigger:".food-cards",
+        trigger:".text-intro h1",
         scroller:"#main",
         start:"top 80%",
         end:"top 90%",
-        scrub:2,
+        scrub:2
+    }
+});
+gsap.from(".text-intro p",{
+    x:150,
+    opacity:0,
+    duration:1.5,
+    scrollTrigger:{
+        trigger:".text-intro p",
+        scroller:"#main",
+        start:"top 80%",
+        end:"top 90%",
+        scrub:2
+    }
+});
+gsap.to(".images img",{
+    y:-30,
+    duration:1.5,
+    scrollTrigger:{
+        trigger:".images img",
+        scroller:"#main",
+        start:"top 80%",
+        end:"top 90%",
+        scrub:2
     }
 });
