@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Borel&family=Nanum+Gothic&family=Oswald:wght@400;600;700&family=Poppins:wght@400;600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+:root{
+    --main-color:#edf2f4;
+    --second-color:#0b090a;
+    --third-color:#d00000;
+    --main-back-color:#d00000;
+    --second-back-color:#ffd60a;
+    --third-back-color:#ededed;
+}
+#cursor{
+    height: 10px;
+    width: 10px;
+    background-color: var(--second-color);
+    border-radius: 50%;
+    position: fixed;
+    z-index: 100;
+}
+#main{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#menubar{
+    font-size: 1.5rem;
+    color: var(--third-color);
+    background-color: var(--main-color);
+    padding: 10px 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: fixed;
+    z-index: 50;
+    top: 30px;
+    right: 50px;
+}
+.menu-section{
+    position: fixed;
+    width: 600px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    top: 0;
+    right:-100%;
+    background-color: var(--third-back-color);
+    z-index: 50;
+}
+.menu-section h1{
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 2px;
+    color: #adb5bd;
+}
+.menu-section .divider{
+    width: 150px;
+    background-color: var(--second-color);
+    height: 2px;
+}
+.menu-section ul{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    list-style: none;
+}
+.menu-section ul li{
+    padding-block: 10px;
+}
+.menu-section ul li a{
+    text-decoration: none;
+    font-size: 2rem;
+    color: var(--second-color);
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+}
+.menu-section i{
+    position: absolute;
+    top: 5%;
+    right: 10%;
+    font-size: 2.2rem;
+    cursor: pointer;
+}
+#heading{
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    font-size: 4rem;
+    margin-top: 50px;
+    text-decoration: underline;
+    font-weight: 600;
+    color: var(--second-back-color);
+}
+#cart-section{
+    width: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: var(--main-color);
+    overflow: hidden;
+}
+#food-items{
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #fff;
+}
+.item{
+    position: relative;
+    width: 100%;
+    height: 150px;
+    background-color: #fff;
+}
+.itemImg{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 6%;
+    left: 2%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.foodName{
+    position: absolute;
+    font-family: 'Poppins', sans-serif;
+    top: 6%;
+    left: 30%;
+    font-size: 1.5rem;
+    color: var(--second-color);
+    font-weight: 600;
+}
+.foodCategory{
+    
+}

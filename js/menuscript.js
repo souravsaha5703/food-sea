@@ -348,6 +348,10 @@ const foods=[{
     },
 ];
 
+const stringData=JSON.stringify(foods);
+
+localStorage.setItem('foodData',stringData);
+
 let searchBar=document.getElementById("search-bar");
 let searchBox=document.getElementById("searchbox");
 let searchBtn=document.getElementById("searchBtn");
@@ -378,6 +382,7 @@ function searchFoodResult(){
             foodsPrice.className="price";
             foodsPrice.innerHTML=food.foodPrice;
             buyOption.className="buy";
+            buyOption.href=`foodcart.html?id=${food.foodId}`;
             buyOption.innerHTML=`<i class="fa-solid fa-cart-shopping"></i> Add to Cart`;
             imageLayer.className="layer";
             searchFoods.appendChild(menuCard);
@@ -444,6 +449,7 @@ function createFoodResult(food){
     foodsPrice.className="price";
     foodsPrice.innerHTML=food.foodPrice;
     buyOption.className="buy";
+    buyOption.href=`foodcart.html?id=${food.foodId}`;
     buyOption.innerHTML=` <i class="fa-solid fa-cart-shopping"></i> Add to Cart`;
     imageLayer.className="layer";
     menuCard.appendChild(foodsImage);
