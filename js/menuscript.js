@@ -318,6 +318,34 @@ const foods=[{
     foodImage:'../images/roso golla image.jpg',
     category:"desserts"
     },
+    {
+    foodId:16,
+    foodName:"Chicken Curry",
+    foodPrice:"₹150",
+    foodImage:'../images/chicken curry img.jpg',
+    category:"non veg"
+    },
+    {
+    foodId:17,
+    foodName:"Fish Cutlet",
+    foodPrice:"₹100",
+    foodImage:'../images/Fish Cutlet img.jpg',
+    category:"non veg"
+    },
+    {
+    foodId:18,
+    foodName:"Mutton Kosha",
+    foodPrice:"₹150",
+    foodImage:'../images/mutton kosha img.jpg',
+    category:"non veg"
+    },
+    {
+    foodId:19,
+    foodName:"Paneer Tikka",
+    foodPrice:"₹90",
+    foodImage:'../images/paneer tikka img.jpg',
+    category:"veg"
+    },
 ];
 
 let searchBar=document.getElementById("search-bar");

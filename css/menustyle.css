@@ -40,6 +40,19 @@ body{
     top: 30px;
     right: 50px;
 }
+#cart{
+    font-size: 1.5rem;
+    color: var(--third-color);
+    background-color: var(--main-color);
+    padding: 10px 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: fixed;
+    z-index: 50;
+    top: 30px;
+    right: 140px;
+    cursor: pointer;
+}
 .menu-section{
     position: fixed;
     width: 600px;
