@@ -2,19 +2,8 @@ let foodString=localStorage.getItem('foodData');
 
 let foodArray=JSON.parse(foodString);
 
-let foodIdReceived=window.location.search;
+var foodIdReceived=localStorage.getItem('tempFoodId');
 
-var params=new URLSearchParams(foodIdReceived);
-
-var data=params.get('id');
-
-
- for (let index = 0; index < foodArray.length; index++) {
-    if(data==foodArray[index].foodId){
-        let foodDetails=data;
-        displayData(foodDetails);
-    }
- }
 var mainSection=document.getElementById("main");
 var cursor=document.getElementById("cursor");
 var homeBtn=document.getElementById("home");
@@ -26,7 +15,16 @@ var contactBtn=document.getElementById("contact");
 var menuBtn=document.getElementById("menubar");
 var menuSection=document.getElementsByClassName("menu-section");
 var closeMenuBtn=document.getElementById("close-menu");
-var foodItemsBox=document.getElementById("food-items");
+var cartSection=document.getElementById("food-items");
+
+ for (let index = 0; index < foodArray.length; index++) {
+    if(foodIdReceived==foodArray[index].foodId){
+        let foodDetails=foodIdReceived;
+        console.log(foodDetails);
+        displayData(foodDetails);
+    }
+ }
+
 
 
 
@@ -217,12 +215,29 @@ quantityForm.appendChild(plusBtn);
 
 function displayData(foodDetails){
     let foodData=foodDetails;
-    let items=document.createElement("div");
-    items.className="item";
-    let foodImage=document.createElement("img");
-    foodImage.className="itemImg";
-    foodImage.src=foodArray[foodData].foodImage;
-    
+    let foodItem=document.createElement("div");
+    let ItemImage=document.createElement("img");
+    let ItemName=document.createElement("h2");
+    let ItemCategory=document.createElement("h3");
+    let ItemPrice=document.createElement("p");
+    let ItemRemoveBtn=document.createElement("button");
+    foodItem.className="item";
+    ItemImage.className="itemImg";
+    ItemImage.src=foodArray[foodData].foodImage;
+    ItemName.className="foodName";
+    ItemName.innerHTML=foodArray[foodData].foodName;
+    ItemCategory.className="foodCategory";
+    ItemCategory.innerHTML=foodArray[foodData].foodCategory;
+    ItemPrice.className="foodPrice";
+    ItemPrice.innerHTML=foodArray[foodData].foodPrice;
+    ItemRemoveBtn.className="delete";
+    ItemRemoveBtn.innerHTML=`<i class="fa-solid fa-xmark delete"></i>`;
+    cartSection.appendChild(foodItem);
+    foodItem.appendChild(ItemImage);
+    foodItem.appendChild(ItemName);
+    foodItem.appendChild(ItemCategory);
+    foodItem.appendChild(ItemPrice);
+    foodItem.appendChild(ItemRemoveBtn);
 }
 
 // var plusBtn=document.querySelectorAll(".plus");

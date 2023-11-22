@@ -382,7 +382,7 @@ function searchFoodResult(){
             foodsPrice.className="price";
             foodsPrice.innerHTML=food.foodPrice;
             buyOption.className="buy";
-            buyOption.href=`foodcart.html?id=${food.foodId}`;
+            // buyOption.href=`foodcart.html?id=${food.foodId}`;
             buyOption.innerHTML=`<i class="fa-solid fa-cart-shopping"></i> Add to Cart`;
             imageLayer.className="layer";
             searchFoods.appendChild(menuCard);
@@ -449,8 +449,9 @@ function createFoodResult(food){
     foodsPrice.className="price";
     foodsPrice.innerHTML=food.foodPrice;
     buyOption.className="buy";
-    buyOption.href=`foodcart.html?id=${food.foodId}`;
+    // buyOption.href=`foodcart.html?id=${food.foodId}`;
     buyOption.innerHTML=` <i class="fa-solid fa-cart-shopping"></i> Add to Cart`;
+    buyOption.id=food.foodId;
     imageLayer.className="layer";
     menuCard.appendChild(foodsImage);
     menuCard.appendChild(imageLayer);
@@ -460,6 +461,7 @@ function createFoodResult(food){
     if(window.innerHeight>530){
         CartBtnAnimation(buyOption);
     }
+    cartActionListener(buyOption);
     return menuCard;
 }
 
@@ -492,5 +494,12 @@ function CartBtnAnimation(buyOption){
             ease:Power3,
             duration:0.5
         });
+    });
+}
+
+function cartActionListener(buyOption){
+    let cartBtn=buyOption;
+    cartBtn.addEventListener("click",(e)=>{
+        localStorage.setItem("tempFoodId",e.target.id);
     });
 }
