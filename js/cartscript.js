@@ -281,9 +281,6 @@ function quantityButtonAction(formStructure){
             qBox.value=quantityValue-1;
             quantity=qBox.value;
             counter--;
-            realFoodPrice.forEach((amount)=>{
-                finalPriceAmount=amount*counter;
-            });
         }
     });
 
@@ -292,8 +289,5 @@ function quantityButtonAction(formStructure){
         let quantityValue=Number(qBox.value);
         qBox.value=quantityValue+1;
         quantity=qBox.value;
-        realFoodPrice.forEach((amount)=>{
-            finalPriceAmount=amount*counter;
-        });
     });
 }
