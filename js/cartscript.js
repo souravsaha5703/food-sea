@@ -280,12 +280,10 @@ function quantityButtonAction(formStructure){
         }else{
             qBox.value=quantityValue-1;
             quantity=qBox.value;
-            counter--;
         }
     });
 
     pBtn.addEventListener("click",()=>{
-        counter++;
         let quantityValue=Number(qBox.value);
         qBox.value=quantityValue+1;
         quantity=qBox.value;
