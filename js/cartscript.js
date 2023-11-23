@@ -2,7 +2,9 @@ let foodString=localStorage.getItem('foodData');
 
 let foodArray=JSON.parse(foodString);
 
-var foodIdReceived=localStorage.getItem('tempFoodId');
+let foodIdReceived=localStorage.getItem('tempFoodId');
+
+let arrayOfId=JSON.parse(foodIdReceived);
 
 var mainSection=document.getElementById("main");
 var cursor=document.getElementById("cursor");
@@ -16,15 +18,6 @@ var menuBtn=document.getElementById("menubar");
 var menuSection=document.getElementsByClassName("menu-section");
 var closeMenuBtn=document.getElementById("close-menu");
 var cartSection=document.getElementById("food-items");
-
- for (let index = 0; index < foodArray.length; index++) {
-    if(foodIdReceived==foodArray[index].foodId){
-        let foodDetails=foodIdReceived;
-        console.log(foodDetails);
-        displayData(foodDetails);
-    }
- }
-
 
 
 
@@ -186,32 +179,57 @@ closeMenuBtn.addEventListener("click",()=>{
         ease:Power3
     });
 });
+function quantityFormBuild(){
+    let plusBtn=document.createElement("input");
+    plusBtn.className="plus";
+    plusBtn.type="button";
+    plusBtn.value="+";
+    
+    let minusBtn=document.createElement("input");
+    minusBtn.className="minus";
+    minusBtn.type="button";
+    minusBtn.value="-";
+    
+    let quantityBox=document.createElement("input");
+    quantityBox.type="text";
+    quantityBox.value="1";
+    quantityBox.className="qty";
+    quantityBox.id="qtybox";
+    quantityBox.disabled=true;
+    
+    let quantityForm=document.createElement("form");
+    quantityForm.id="myform";
+    quantityForm.className="quantity";
+    quantityForm.action="#";
+    
+    quantityForm.appendChild(minusBtn);
+    quantityForm.appendChild(quantityBox);
+    quantityForm.appendChild(plusBtn);
 
-let plusBtn=document.createElement("input");
-plusBtn.className="plus";
-plusBtn.type="button";
-plusBtn.value="+";
+    return quantityForm;
+}
 
-let minusBtn=document.createElement("input");
-minusBtn.className="minus";
-minusBtn.type="button";
-minusBtn.value="-";
+let realFoodPrice=[];
+let counter=1;
+let quantity=0;
 
-let quantityBox=document.createElement("input");
-quantityBox.type="text";
-quantityBox.value="1";
-quantityBox.className="qty";
-quantityBox.id="qtybox";
-quantityBox.disabled=true;
 
-let quantityForm=document.createElement("form");
-quantityForm.id="myform";
-quantityForm.className="quantity";
-quantityForm.action="#";
+arrayOfId.forEach((data)=>{
+    for (let index = 0; index < foodArray.length; index++) {
+        if(data==foodArray[index].foodId){
+            let foodDetails=data;
+            displayData(foodDetails);
+        }
+     }
+});
 
-quantityForm.appendChild(minusBtn);
-quantityForm.appendChild(quantityBox);
-quantityForm.appendChild(plusBtn);
+arrayOfId.forEach((data)=>{
+    for(let i=0;i<foodArray.length;i++){
+        if(data==foodArray[i].foodId){
+            realFoodPrice.push(foodArray[data].foodPrice);
+        }
+    }
+});
 
 function displayData(foodDetails){
     let foodData=foodDetails;
@@ -221,47 +239,61 @@ function displayData(foodDetails){
     let ItemCategory=document.createElement("h3");
     let ItemPrice=document.createElement("p");
     let ItemRemoveBtn=document.createElement("button");
+    let finalPrice=document.createElement("p");
+    finalPrice.className="final-price";
     foodItem.className="item";
     ItemImage.className="itemImg";
     ItemImage.src=foodArray[foodData].foodImage;
     ItemName.className="foodName";
     ItemName.innerHTML=foodArray[foodData].foodName;
     ItemCategory.className="foodCategory";
-    ItemCategory.innerHTML=foodArray[foodData].foodCategory;
+    ItemCategory.innerHTML=foodArray[foodData].category;
     ItemPrice.className="foodPrice";
-    ItemPrice.innerHTML=foodArray[foodData].foodPrice;
+    ItemPrice.innerHTML=`₹${foodArray[foodData].foodPrice}`;
     ItemRemoveBtn.className="delete";
     ItemRemoveBtn.innerHTML=`<i class="fa-solid fa-xmark delete"></i>`;
+    finalPrice.innerHTML=`₹${foodArray[foodData].foodPrice}`;
+    let formStructure=quantityFormBuild();
     cartSection.appendChild(foodItem);
     foodItem.appendChild(ItemImage);
     foodItem.appendChild(ItemName);
     foodItem.appendChild(ItemCategory);
     foodItem.appendChild(ItemPrice);
+    foodItem.appendChild(formStructure);
     foodItem.appendChild(ItemRemoveBtn);
+    foodItem.appendChild(finalPrice);
+    quantityButtonAction(formStructure);
 }
 
-// var plusBtn=document.querySelectorAll(".plus");
-// var minusBtn=document.querySelectorAll(".minus");
-// var quantityBox=document.getElementById("qtybox");
-// var quantity=0;
-// quantityBox.disabled=true;
 
-// plusBtn.forEach((plusButton)=>{
-//     plusButton.addEventListener("click",()=>{
-//         let quantityValue=Number(quantityBox.value);
-//         quantityBox.value=quantityValue+1;
-//         quantity=quantityBox.value;
-//     });
-// });
+function quantityButtonAction(formStructure){
+    let formInfo=formStructure;
+    let formChilds=formInfo.children;
+    let mBtn=formChilds.item(0);
+    let qBox=formChilds.item(1);
+    let pBtn=formChilds.item(2);
 
-// minusBtn.forEach((minusButton)=>{
-//     minusButton.addEventListener("click",()=>{
-//         let quantityValue=Number(quantityBox.value);
-//         if(quantityValue==1){
-//             quantityBox.value=1; 
-//         }else{
-//             quantityBox.value=quantityValue-1;
-//             quantity=quantityBox.value;
-//         }
-//     });
-// });
+    mBtn.addEventListener("click",()=>{
+        let quantityValue=Number(qBox.value);
+        if(quantityValue==1){
+            qBox.value=1; 
+        }else{
+            qBox.value=quantityValue-1;
+            quantity=qBox.value;
+            counter--;
+            realFoodPrice.forEach((amount)=>{
+                finalPriceAmount=amount*counter;
+            });
+        }
+    });
+
+    pBtn.addEventListener("click",()=>{
+        counter++;
+        let quantityValue=Number(qBox.value);
+        qBox.value=quantityValue+1;
+        quantity=qBox.value;
+        realFoodPrice.forEach((amount)=>{
+            finalPriceAmount=amount*counter;
+        });
+    });
+}
