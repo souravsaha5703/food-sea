@@ -209,8 +209,6 @@ function quantityFormBuild(){
     return quantityForm;
 }
 
-let realFoodPrice=[];
-let counter=1;
 let quantity=0;
 
 
@@ -221,14 +219,6 @@ arrayOfId.forEach((data)=>{
             displayData(foodDetails);
         }
      }
-});
-
-arrayOfId.forEach((data)=>{
-    for(let i=0;i<foodArray.length;i++){
-        if(data==foodArray[i].foodId){
-            realFoodPrice.push(foodArray[data].foodPrice);
-        }
-    }
 });
 
 function displayData(foodDetails){
