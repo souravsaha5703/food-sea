@@ -18,6 +18,7 @@ var menuBtn=document.getElementById("menubar");
 var menuSection=document.getElementsByClassName("menu-section");
 var closeMenuBtn=document.getElementById("close-menu");
 var cartSection=document.getElementById("food-items");
+var grandPrice=document.getElementById("gdprice");
 
 
 
@@ -277,6 +278,7 @@ function quantityButtonAction(formStructure){
             quantity=qBox.value;
             let targetMinusBtn=dets.target.parentNode;
             priceDecrease(targetMinusBtn);
+            calculateGrandPrice();
         }
     });
 
@@ -286,6 +288,7 @@ function quantityButtonAction(formStructure){
         quantity=qBox.value;
         let targetPlusBtn=dets.target.parentNode;
         priceIncrease(targetPlusBtn);
+        calculateGrandPrice();
     });
 }
 
@@ -332,3 +335,32 @@ function currentPriceConversion(currentPriceText){
     var updatedPrice=Number(updatedText);
     return updatedPrice;
 }
+
+function totalPrice(){
+    let priceArray=[];
+    var allPrice=document.querySelectorAll(".final-price");
+    allPrice.forEach((price)=>{
+        priceArray.push(price);
+    });
+    return priceArray;
+}
+
+function calculateGrandPrice(){
+    let allPriceArray=totalPrice();
+    let actualPriceString=[];
+    allPriceArray.forEach((price)=>{
+        actualPriceString.push(price.innerHTML);
+    });
+    let wordToRemove='₹';
+    let actualPriceArray=actualPriceString.map(str=>{
+        let wordsArray=str.split('');
+        let filteredArray=wordsArray.filter(word=> word!==wordToRemove);
+        return filteredArray.join('');
+    });
+    let prices=actualPriceArray.map(str=> parseInt(str));
+    let totalGrandPrice=prices.reduce((accumulator,currentValue)=>{
+        return accumulator+currentValue
+    },0);
+    grandPrice.innerHTML=`₹${totalGrandPrice}`;
+}
+calculateGrandPrice();
