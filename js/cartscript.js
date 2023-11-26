@@ -223,6 +223,12 @@ arrayOfId.forEach((data)=>{
 
 function displayData(foodDetails){
     let foodData=foodDetails;
+    let formDetails=createItems(foodData);
+    quantityButtonAction(formDetails);
+}
+
+function createItems(foodData){
+    let fdata=foodData;
     let foodItem=document.createElement("div");
     let ItemImage=document.createElement("img");
     let ItemName=document.createElement("h2");
@@ -233,16 +239,16 @@ function displayData(foodDetails){
     finalPrice.className="final-price";
     foodItem.className="item";
     ItemImage.className="itemImg";
-    ItemImage.src=foodArray[foodData].foodImage;
+    ItemImage.src=foodArray[fdata].foodImage;
     ItemName.className="foodName";
-    ItemName.innerHTML=foodArray[foodData].foodName;
+    ItemName.innerHTML=foodArray[fdata].foodName;
     ItemCategory.className="foodCategory";
-    ItemCategory.innerHTML=foodArray[foodData].category;
+    ItemCategory.innerHTML=foodArray[fdata].category;
     ItemPrice.className="foodPrice";
-    ItemPrice.innerHTML=`₹${foodArray[foodData].foodPrice}`;
+    ItemPrice.innerHTML=`₹${foodArray[fdata].foodPrice}`;
     ItemRemoveBtn.className="delete";
     ItemRemoveBtn.innerHTML=`<i class="fa-solid fa-xmark delete"></i>`;
-    finalPrice.innerHTML=`₹${foodArray[foodData].foodPrice}`;
+    finalPrice.innerHTML=`₹${foodArray[fdata].foodPrice}`;
     let formStructure=quantityFormBuild();
     cartSection.appendChild(foodItem);
     foodItem.appendChild(ItemImage);
@@ -252,9 +258,8 @@ function displayData(foodDetails){
     foodItem.appendChild(formStructure);
     foodItem.appendChild(ItemRemoveBtn);
     foodItem.appendChild(finalPrice);
-    quantityButtonAction(formStructure);
+    return formStructure;
 }
-
 
 function quantityButtonAction(formStructure){
     let formInfo=formStructure;
@@ -263,19 +268,67 @@ function quantityButtonAction(formStructure){
     let qBox=formChilds.item(1);
     let pBtn=formChilds.item(2);
 
-    mBtn.addEventListener("click",()=>{
+    mBtn.addEventListener("click",(dets)=>{
         let quantityValue=Number(qBox.value);
         if(quantityValue==1){
             qBox.value=1; 
         }else{
             qBox.value=quantityValue-1;
             quantity=qBox.value;
+            let targetMinusBtn=dets.target.parentNode;
+            priceDecrease(targetMinusBtn);
         }
     });
 
-    pBtn.addEventListener("click",()=>{
+    pBtn.addEventListener("click",(dets)=>{
         let quantityValue=Number(qBox.value);
         qBox.value=quantityValue+1;
         quantity=qBox.value;
+        let targetPlusBtn=dets.target.parentNode;
+        priceIncrease(targetPlusBtn);
     });
+}
+
+function priceIncrease(targetPlusBtn){
+    let targetParent=targetPlusBtn;
+    let mainParent=targetParent.parentNode;
+    let price=mainParent.querySelector(".final-price");
+    let mainPrice=mainParent.querySelector(".foodPrice");
+    let priceText=mainPrice.innerHTML;
+    let currentPriceText=price.innerHTML;
+    let latestText=perfectPriceConversion(priceText);
+    let latestCurrentText=currentPriceConversion(currentPriceText);
+    price.innerHTML=`₹${latestText+latestCurrentText}`;
+}
+
+function priceDecrease(targetMinusBtn){
+    let targetParent=targetMinusBtn;
+    let mainParent=targetParent.parentNode;
+    let price=mainParent.querySelector(".final-price");
+    let mainPrice=mainParent.querySelector(".foodPrice");
+    let priceText=mainPrice.innerHTML;
+    let currentPriceText=price.innerHTML;
+    let latestText=perfectPriceConversion(priceText);
+    let latestCurrentText=currentPriceConversion(currentPriceText);
+    price.innerHTML=`₹${latestCurrentText-latestText}`;
+}
+
+function perfectPriceConversion(priceText){
+    var text=priceText;
+    var textArray=text.split('');
+    var indexToRemove=0;
+    textArray.splice(indexToRemove,1);
+    var updatedText=textArray.join('');
+    var updatedPrice=Number(updatedText);
+    return updatedPrice;
+}
+
+function currentPriceConversion(currentPriceText){
+    var text=currentPriceText;
+    var textArray=text.split('');
+    var indexToRemove=0;
+    textArray.splice(indexToRemove,1);
+    var updatedText=textArray.join('');
+    var updatedPrice=Number(updatedText);
+    return updatedPrice;
 }
