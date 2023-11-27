@@ -229,7 +229,7 @@ function displayData(foodDetails){
 }
 
 function createItems(foodData){
-    let fdata=foodData;
+    let fdata=foodData-1;
     let foodItem=document.createElement("div");
     let ItemImage=document.createElement("img");
     let ItemName=document.createElement("h2");

@@ -135,7 +135,6 @@ body {
     flex-direction: column;
     gap: 10px;
     padding: 10px;
-    border: 1px solid #fff;
 }
 
 .item {
@@ -271,4 +270,83 @@ input.minus {
     font-weight: 600;
     font-size: 1.2rem;
     border-radius: 5px;
+    transition: all 0.5s ease-out;
+}
+#grand-price a:hover{
+    background-color: var(--third-color);
+    color: var(--main-color);
+}
+@media (max-width:1020px){
+    #cart-section{
+        width: 95%;
+    }
+}
+@media (max-width:810px){
+    #heading{
+        font-size: 2.5rem;
+    }
+    #cart-section{
+        flex-direction: column;
+    }
+    .menu-section{
+        width: 500px;
+        right: -150%;
+    }
+}
+@media (max-width:510px){
+    .menu-section{
+        width: 450px;
+    }
+    #food-items{
+        width: 350px;
+    }
+    .itemImg{
+        width: 90px;
+        height: 90px;
+    }
+    .foodName{
+        font-size: 1rem;
+        left: 37%;
+    }
+    .foodCategory{
+        left: 37%;
+    }
+    .foodPrice{
+        left: 37%;
+    }
+    .quantity{
+        left: 35%;
+    }
+    .final-price{
+        font-size: 1rem;
+    }
+    #grand-price{
+        margin-top: 30px;
+        width: 350px;
+    }
+}
+@media (max-width:400px){
+    .menu-section{
+        width: 375px;
+    }
+    #cart-section{
+        width: 100%;
+    }
+    #grand-price{
+        width: 300px;
+    }
+    #grand-price a{
+        width: 95%;
+    }
+}
+@media (max-width:375px){
+    .menu-section{
+        width: 325px;
+    }
+    #heading{
+        font-size: 2rem;
+    }
+    #food-items{
+        width: 320px;
+    }
 }
