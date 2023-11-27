@@ -19,6 +19,7 @@ var menuSection=document.getElementsByClassName("menu-section");
 var closeMenuBtn=document.getElementById("close-menu");
 var cartSection=document.getElementById("food-items");
 var grandPrice=document.getElementById("gdprice");
+var proceedBtn=document.querySelector("#grand-price a");
 
 
 
@@ -362,5 +363,12 @@ function calculateGrandPrice(){
         return accumulator+currentValue
     },0);
     grandPrice.innerHTML=`₹${totalGrandPrice}`;
+    return totalGrandPrice;
 }
 calculateGrandPrice();
+
+proceedBtn.addEventListener("click",()=>{
+    let gPrice=calculateGrandPrice();
+    sessionStorage.setItem('totalPrice',JSON.stringify(gPrice));
+    window.location.href='delivery-details.html';
+});
