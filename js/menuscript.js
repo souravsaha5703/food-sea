@@ -503,6 +503,6 @@ function cartActionListener(buyOption){
     cartBtn.addEventListener("click",(e)=>{
         arrayId.push(e.target.id);
         let stringOfId=JSON.stringify(arrayId);
-        localStorage.setItem("tempFoodId",stringOfId);
+        sessionStorage.setItem("tempFoodId",stringOfId);
     });
 }

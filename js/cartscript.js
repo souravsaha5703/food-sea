@@ -2,7 +2,7 @@ let foodString=localStorage.getItem('foodData');
 
 let foodArray=JSON.parse(foodString);
 
-let foodIdReceived=localStorage.getItem('tempFoodId');
+let foodIdReceived=sessionStorage.getItem('tempFoodId');
 
 let arrayOfId=JSON.parse(foodIdReceived);
 
