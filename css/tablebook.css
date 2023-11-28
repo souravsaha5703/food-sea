@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Borel&family=Nanum+Gothic&family=Oswald:wght@400;600;700&family=Poppins:wght@400;600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+body::-webkit-scrollbar{
+    display: block;
+    width: 8px;
+    background-color: #f5f3f4;
+}
+body::-webkit-scrollbar-thumb{
+    background-color: #ffd60a;
+    border-radius: 50px;
+}
+:root{
+    --main-color:#edf2f4;
+    --second-color:#0b090a;
+    --third-color:#d00000;
+    --main-back-color:#d00000;
+    --second-back-color:#ffd60a;
+    --third-back-color:#ededed;
+}
+#cursor{
+    height: 10px;
+    width: 10px;
+    background-color: var(--second-color);
+    border-radius: 50%;
+    position: fixed;
+    z-index: 100;
+}
+#menubar{
+    font-size: 1.5rem;
+    color: var(--third-color);
+    background-color: var(--main-color);
+    padding: 10px 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: fixed;
+    z-index: 50;
+    top: 30px;
+    right: 50px;
+}
+#main{
+    width: 100%;
+}
+.menu-section{
+    position: fixed;
+    width: 600px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    top: 0;
+    right:-150%;
+    background-color: var(--third-back-color);
+    z-index: 50;
+}
+.menu-section h1{
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 2px;
+    color: #adb5bd;
+}
+.menu-section .divider{
+    width: 150px;
+    background-color: var(--second-color);
+    height: 2px;
+}
+.menu-section ul{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    list-style: none;
+}
+.menu-section ul li{
+    padding-block: 10px;
+}
+.menu-section ul li a{
+    text-decoration: none;
+    font-size: 2rem;
+    color: var(--second-color);
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+}
+.menu-section i{
+    position: absolute;
+    top: 5%;
+    right: 10%;
+    font-size: 2.2rem;
+    cursor: pointer;
+}
+nav{
+    width: 100%;
+    position: fixed;
+}
+nav img{
+    width: 120px;
+    margin-left: 50px;
+}
+#heading{
+    text-align: center;
+    margin-top: 5px;
+    font-family: 'Borel', cursive;
+    font-weight: 600;
+    font-size: 4rem;
+    font-style: oblique;
+    text-decoration: underline;
+    padding-top: 50px;
+    color: var(--main-back-color);
+}
+#top-image{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+#back-img{
+    position: relative;
+    width: 800px;
+    height: 400px;
+    border-radius: 10px;
+    background-color: #0b090a;
+    overflow: hidden;
+    box-shadow: 5px 5px 10px var(--second-color);
+}
+#back-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#back-img #image-text{
+    position: absolute;
+    bottom: 45%;
+    left: 10%;
+    overflow: hidden;
+}
+#back-img #image-text .text{
+    color: var(--third-back-color);
+    font-family: 'Nanum Gothic', sans-serif;
+    text-transform: capitalize;
+    margin-right: 15px;
+    font-size: 3.5rem;
+    font-weight: 900;
+}
+#overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(rgb(0, 0, 0, 0.3), rgb(0, 0, 0, 0.5));
+}
+#guest-section{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+#guest-header{
+    font-family: 'Anton', sans-serif;
+    text-align: center;
+    font-weight: 400;
+    text-transform: capitalize;
+    font-size: 2rem;
+}
+#guest-number{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 5px;
+}
+.numbers{
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 1.5rem;
+    padding: 15px 25px;
+    background-color: var(--third-back-color);
+    border-radius: 50%;
+    font-weight: 600;
+    color: var(--second-color);
+    transition: all 0.5s ease-out;
+}
+.numbers:hover{
+    background-color: var(--second-color);
+    color: var(--main-color);
+}
+#date-section{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin-top: 30px;
+    background-color: #0b090a;
+}

@@ -139,6 +139,7 @@ body{
     text-decoration: underline;
     color: var(--third-color);
     margin-top: 60px;
+    font-style: oblique;
 }
 #search-bar{
     width: 100%;
