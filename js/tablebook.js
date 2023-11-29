@@ -9,6 +9,8 @@ var contactBtn=document.getElementById("contact");
 var menuBtn=document.getElementById("menubar");
 var menuSection=document.getElementsByClassName("menu-section");
 var closeMenuBtn=document.getElementById("close-menu");
+var timeBoxes=document.querySelectorAll(".times");
+var guestNumberBoxes=document.querySelectorAll(".numbers");
 
 document.addEventListener("mousemove",(dets)=>{
     cursor.style.left=dets.x+"px";
@@ -192,4 +194,30 @@ gsap.from("#back-img img",{
     duration:1,
     ease:Power3,
     opacity:0
+});
+
+guestNumberBoxes.forEach((guestBox)=>{
+    guestBox.addEventListener("click",(e)=>{
+        e.target.style.backgroundColor="#0b090a";
+        e.target.style.color="#edf2f4";
+        guestNumberBoxes.forEach((otherBoxes)=>{
+            if(otherBoxes!==guestBox){
+                otherBoxes.style.backgroundColor="#edf2f4";
+                otherBoxes.style.color="#0b090a";
+            }
+        });
+    });
+});
+
+timeBoxes.forEach((timexBox)=>{
+    timexBox.addEventListener("click",(e)=>{
+        e.target.style.backgroundColor="#0b090a";
+        e.target.style.color="#edf2f4";
+        timeBoxes.forEach((otherBoxes)=>{
+            if(otherBoxes!==timexBox){
+                otherBoxes.style.backgroundColor="#edf2f4";
+                otherBoxes.style.color="#0b090a";
+            }
+        });
+    });
 });
