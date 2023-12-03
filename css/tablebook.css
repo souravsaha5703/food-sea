@@ -294,3 +294,157 @@ nav img{
     border-radius: 5px;
     cursor: pointer;
 }
+footer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 50px 20px;
+    background-color: var(--second-color);
+    margin-top: 50px;
+}
+.useful-link{
+    display: flex;
+    flex-direction: column;
+}
+.useful-link h1{
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    color: var(--main-color);
+}
+.useful-link a{
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    color: #adb5bd;
+}
+.useful-link p{
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    color: #adb5bd; 
+}
+.address{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.address h2{
+    font-family: 'Oswald', sans-serif;
+    color: var(--main-color);
+    font-size: 1rem;
+    text-align: center;
+    font-weight: 400;
+}
+@media (max-width:864px){
+    #heading{
+        font-size: 3rem;
+    }
+    #back-img{
+        width: 600px;
+    }
+    #back-img #image-text{
+        left: 20%;
+    }
+    #back-img #image-text .text{
+        font-size: 2rem;
+    }
+    .menu-section{
+        width: 500px;
+        right: -150%;
+    }
+    .useful-link h1{
+        font-size: 1.5rem;
+    }
+    .useful-link a{
+        font-size: 1rem;
+    }
+    .useful-link p{
+        font-size: 1rem;
+    }
+}
+@media (max-width:674px){
+    #heading{
+        font-size: 2.5rem;
+    }
+    .menu-section{
+        width: 450px;
+    }
+    #back-img{
+        width: 400px;
+        height: 300px;
+    }
+    #back-img #image-text{
+        bottom: 45%;
+        left: 14%;
+    }
+    #back-img #image-text .text{
+        font-size: 1.5rem;
+    }
+    #guest-header{
+        font-size: 1.5rem;
+    }
+    #date-header{
+        font-size: 1.5rem;
+    }
+    #time-header{
+        font-size: 1.5rem;
+    }
+    footer{
+        flex-direction: column;
+        gap: 50px;
+    }
+    .useful-link{
+        align-items: center;
+        justify-content: center;
+    }
+}
+@media (max-width:425px){
+    nav img{
+        width: 70px;
+    }
+    .menu-section{
+        width: 325px;
+    }
+    #heading{
+        font-size: 1.5rem;
+    }
+    #back-img{
+        width: 300px;
+        height: 200px;
+    }
+    #back-img #image-text .text{
+        font-size: 1rem;
+    }
+    #guest-header{
+        font-size: 1rem;
+    }
+    #date-header{
+        font-size: 1rem;
+    }
+    #time-header{
+        font-size: 1rem;
+    }
+    #guest-number{
+        flex-wrap: wrap;
+    }
+    .numbers{
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+    #date{
+        width: 250px;
+        font-size: 1rem;
+    }
+    .times{
+        font-size: 1rem;
+    }
+    #bookingBtn{
+        font-size: 1rem;
+    }
+}
+@media (max-width:375px){
+    #menubar{
+        right: 20px;
+    }
+}
