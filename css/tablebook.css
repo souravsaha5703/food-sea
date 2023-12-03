@@ -283,6 +283,8 @@ nav img{
     justify-content: center;
 }
 #bookingBtn{
+    border: none;
+    outline: none;
     font-family: 'Nanum Gothic', sans-serif;
     text-decoration: none;
     background-color: var(--second-color);

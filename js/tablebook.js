@@ -11,6 +11,27 @@ var menuSection=document.getElementsByClassName("menu-section");
 var closeMenuBtn=document.getElementById("close-menu");
 var timeBoxes=document.querySelectorAll(".times");
 var guestNumberBoxes=document.querySelectorAll(".numbers");
+var bookDate=document.getElementById("date");
+var bookingBtn=document.getElementById("bookingBtn");
+
+window.onload=()=>{
+    var today = new Date();
+    var year = today.getFullYear();
+    var month = today.getMonth() + 1;
+    var day = today.getDate();
+    if(month<10){
+        month='0'+month;
+    }
+    if(day<10){
+        day='0'+day;
+    }
+    
+    var maxDate = year + '-' + month + '-' + day;
+
+    var inputDate = bookDate;
+    inputDate.setAttribute('min', maxDate);
+}
+
 
 document.addEventListener("mousemove",(dets)=>{
     cursor.style.left=dets.x+"px";
@@ -200,10 +221,12 @@ guestNumberBoxes.forEach((guestBox)=>{
     guestBox.addEventListener("click",(e)=>{
         e.target.style.backgroundColor="#0b090a";
         e.target.style.color="#edf2f4";
+        e.target.classList.add('no-selected');
         guestNumberBoxes.forEach((otherBoxes)=>{
             if(otherBoxes!==guestBox){
                 otherBoxes.style.backgroundColor="#edf2f4";
                 otherBoxes.style.color="#0b090a";
+                otherBoxes.classList.remove('no-selected');
             }
         });
     });
@@ -213,11 +236,27 @@ timeBoxes.forEach((timexBox)=>{
     timexBox.addEventListener("click",(e)=>{
         e.target.style.backgroundColor="#0b090a";
         e.target.style.color="#edf2f4";
+        e.target.classList.add('selected');
         timeBoxes.forEach((otherBoxes)=>{
             if(otherBoxes!==timexBox){
                 otherBoxes.style.backgroundColor="#edf2f4";
                 otherBoxes.style.color="#0b090a";
+                otherBoxes.classList.remove('selected');
             }
         });
     });
+});
+
+
+bookingBtn.addEventListener("click",()=>{
+    let selectedGuestNumber=document.querySelector(".no-selected");
+    let selectedDate=bookDate.value;
+    let selectedTime=document.querySelector(".selected");
+    let bookingData={
+        guestNumber:Number(selectedGuestNumber.innerHTML),
+        date:selectedDate,
+        bookTime:selectedTime.innerHTML
+    }
+    let bookingString=JSON.stringify(bookingData);
+    localStorage.setItem("bookdata",bookingString);
 });
