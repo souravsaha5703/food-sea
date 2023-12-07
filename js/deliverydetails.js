@@ -23,6 +23,7 @@ proceedBtn.addEventListener("click",()=>{
        }
        let details=JSON.stringify(deliveryDetails);
        localStorage.setItem('deliveryDetails',details);
+       window.location.href="index.html";
     }else{
         alert("Please Fill All The Details");
     }
