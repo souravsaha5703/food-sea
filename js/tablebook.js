@@ -287,4 +287,6 @@ bookingBtn.addEventListener("click",()=>{
     }
     let bookingString=JSON.stringify(bookingData);
     localStorage.setItem("bookdata",bookingString);
+    alert("Table is Booked");
+    window.location.href="https://souravsaha5703.github.io/food-sea/index.html";
 });

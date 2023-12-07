@@ -300,6 +300,6 @@ submitForm.addEventListener("click",()=>{
         alert("Please Fill All The Details");
     }else{
         alert("Form Succesfully Submitted");
-        window.location.href="index.html";
+        window.location.href="https://souravsaha5703.github.io/food-sea/index.html";
     }
 });

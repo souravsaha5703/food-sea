@@ -399,5 +399,5 @@ calculateGrandPrice();
 proceedBtn.addEventListener("click",()=>{
     let gPrice=calculateGrandPrice();
     sessionStorage.setItem('totalPrice',JSON.stringify(gPrice));
-    window.location.href='delivery-details.html';
+    window.location.href='https://souravsaha5703.github.io/food-sea/delivery-details.html';
 });
