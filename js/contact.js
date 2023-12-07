@@ -37,6 +37,7 @@ var contactBtn=document.getElementById("contact");
 var menuBtn=document.getElementById("menubar");
 var menuSection=document.getElementsByClassName("menu-section");
 var closeMenuBtn=document.getElementById("close-menu");
+var submitForm=document.getElementById("submit");
 
 
 document.addEventListener("mousemove",(dets)=>{
@@ -271,5 +272,34 @@ gsap.from("#message",{
         start:"top 80%",
         end:"top 90%",
         scrub:2,
+    }
+});
+
+submitForm.addEventListener("click",()=>{
+    var customerName=document.getElementById("name").value;
+    var customerEmail=document.getElementById("email").value;
+    var customerPhone=document.getElementById("phnum").value;
+    var customerMessage=document.getElementById("message").value;
+    if(customerName==""){
+        alert("Please Enter Your Name");
+        return false;
+    }
+    if(customerEmail==""){
+        alert("Please Enter Your Email Address");
+        return false;
+    }
+    if(customerPhone==""){
+        alert("Please Enter Your Phone Number");
+        return false;
+    }
+    if(customerMessage==""){
+        alert("Please Enter Your Message");
+        return false;
+    }
+    if(customerName=='' || customerEmail=='' || customerPhone=='' || customerMessage==''){
+        alert("Please Fill All The Details");
+    }else{
+        alert("Form Succesfully Submitted");
+        window.location.href="index.html";
     }
 });
