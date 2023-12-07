@@ -9,15 +9,6 @@ body{
     height: 100%;
     background-color: #fff;
 }
-body::-webkit-scrollbar{
-    display: block;
-    width: 8px;
-    background-color: #f5f3f4;
-}
-body::-webkit-scrollbar-thumb{
-    background-color: #ffd60a;
-    border-radius: 50px;
-}
 :root{
     --main-color:#edf2f4;
     --second-color:#0b090a;
