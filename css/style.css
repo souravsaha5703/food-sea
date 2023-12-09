@@ -469,10 +469,10 @@ footer{
         right: -150%;
     }
     .text-container{
-        width: 500px;
+        width: 100%;
     }
     .text-container h1{
-        font-size: 3rem;
+        font-size: 3.5rem;
     }
     .intro{
         height: 80vh;
@@ -501,18 +501,20 @@ footer{
         justify-content: center;
     }
 }
+@media (max-width:580px){
+    .text-container h1{
+        font-size: 3rem;
+    }
+}
 @media (max-width:526px){
     .menu-section{
         width: 450px;
     }
     #heading-text{
-        height: 75vh;
-    }
-    .text-container{
-        width: 100%;
+        height: 100vh;
     }
     .text-container h1{
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
     .text-container #bannerimg{
         width: 60px;
@@ -539,17 +541,14 @@ footer{
         width: 325px;
     }
     #heading-text{
-        height: 65vh;
-    }
-    .text-container{
-        width: 100%;
+        height: 100vh;
     }
     .text-container h1{
-        font-size: 2rem;
+        font-size: 2.8rem;
     }
     .text-container #bannerimg{
-        width: 40px;
-        height: 40px;
+        width: 100px;
+        height: 80px;
     }
     .text-intro h1{
         font-size: 1.5rem;
@@ -582,9 +581,18 @@ footer{
         width: 100%;
     }
 }
+@media (max-width:375px){
+    .text-container h1{
+        font-size: 2.5rem;
+    }
+}
 @media (max-width:325px){
     .text-container h1{
-        font-size: 1.5rem;
+        font-size: 2rem;
+    }
+    .text-container #bannerimg{
+        width: 60px;
+        height: 60px;
     }
     .images img{
         width: 100px;
