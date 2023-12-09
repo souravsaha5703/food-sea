@@ -343,7 +343,7 @@ const foods=[{
     foodId:19,
     foodName:"Paneer Tikka",
     foodPrice:90,
-    foodImage:'../images/paneer tikka img.jpg',
+    foodImage:'./images/paneer tikka img.jpg',
     category:"veg"
     },
 ];
