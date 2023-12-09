@@ -384,7 +384,7 @@ function searchFoodResult(){
             foodsPrice.innerHTML=`₹${food.foodPrice}`;
             buyOption.className="buy";
             // buyOption.href=`foodcart.html?id=${food.foodId}`;
-            buyOption.innerHTML=`<i class="fa-solid fa-cart-shopping"></i> Add to Cart`;
+            buyOption.innerHTML=`<i class="fa-solid fa-cart-shopping"></i>  Add`;
             imageLayer.className="layer";
             searchFoods.appendChild(menuCard);
             menuCard.appendChild(foodsImage);
@@ -451,7 +451,7 @@ function createFoodResult(food){
     foodsPrice.innerHTML=`₹${food.foodPrice}`;
     buyOption.className="buy";
     // buyOption.href=`foodcart.html?id=${food.foodId}`;
-    buyOption.innerHTML=` <i class="fa-solid fa-cart-shopping"></i> Add to Cart`;
+    buyOption.innerHTML=` <i class="fa-solid fa-cart-shopping"></i>  Add`;
     buyOption.id=food.foodId;
     imageLayer.className="layer";
     menuCard.appendChild(foodsImage);
@@ -484,7 +484,7 @@ function CartBtnAnimation(buyOption){
     let addCartBtn=buyOption;
     addCartBtn.addEventListener("mouseenter",()=>{
         gsap.to(addCartBtn,{
-            width:165,
+            width:100,
             ease:Power3,
             duration:0.5
         });
