@@ -217,126 +217,126 @@ const foods=[{
     foodId:1,
     foodName:"Pizza",
     foodPrice:150,
-    foodImage:'../images/pizza img.jpg',
+    foodImage:'./images/pizza img.jpg',
     category:"non veg"
     },
     {
     foodId:2,
     foodName:"Sahi Biryani",
     foodPrice:360,
-    foodImage:'../images/biryani img.jpg',
+    foodImage:'./images/biryani img.jpg',
     category:"non veg"
     },
     {
     foodId:3,
     foodName:"Mac Burger",
     foodPrice:200,
-    foodImage:'../images/burger img.jpg',
+    foodImage:'./images/burger img.jpg',
     category:"non veg"
     },
     {
     foodId:4,
     foodName:"Fried Chicken",
     foodPrice:150,
-    foodImage:'../images/fried chicken.jpg',
+    foodImage:'./images/fried chicken.jpg',
     category:"non veg"
     },
     {
     foodId:5,
     foodName:"Sahi Paneer",
     foodPrice:200,
-    foodImage:'../images/sahi paneer.jpg',
+    foodImage:'./images/sahi paneer.jpg',
     category:"veg"
     },
     {
     foodId:6,
     foodName:"Pulao",
     foodPrice:300,
-    foodImage:'../images/pulao.jpg',
+    foodImage:'./images/pulao.jpg',
     category:"veg"
     },
     {
     foodId:7,
     foodName:"Fried Rice",
     foodPrice:350,
-    foodImage:'../images/fried rice img.jpg',
+    foodImage:'./images/fried rice img.jpg',
     category:"veg"
     },
     {
     foodId:8,
     foodName:"Pav Bhaji",
     foodPrice:200,
-    foodImage:'../images/pav bhaji.jpg',
+    foodImage:'./images/pav bhaji.jpg',
     category:"non veg"
     },
     {
     foodId:9,
     foodName:"Crisspy Dosa",
     foodPrice:250,
-    foodImage:'../images/dosa image.jpg',
+    foodImage:'./images/dosa image.jpg',
     category:"veg"
     },
     {
     foodId:10,
     foodName:"Idli",
     foodPrice:120,
-    foodImage:'../images/idli image.jpg',
+    foodImage:'./images/idli image.jpg',
     category:"veg"
     },
     {
     foodId:11,
     foodName:"Chicken Momo",
     foodPrice:80,
-    foodImage:'../images/chicken momo image.png',
+    foodImage:'./images/chicken momo image.png',
     category:"non veg"
     },
     {
     foodId:12,
     foodName:"Chowmein",
     foodPrice:60,
-    foodImage:'../images/chowmin image.jpg',
+    foodImage:'./images/chowmin image.jpg',
     category:"non veg"
     },
     {
     foodId:13,
     foodName:"Spicy Pasta",
     foodPrice:75,
-    foodImage:'../images/pasta image.jpg',
+    foodImage:'./images/pasta image.jpg',
     category:"non veg"
     },
     {
     foodId:14,
     foodName:"Yellow Mount",
     foodPrice:60,
-    foodImage:'../images/pastry.jpg',
+    foodImage:'./images/pastry.jpg',
     category:"desserts"
     },
     {
     foodId:15,
     foodName:"Roso Golla",
     foodPrice:20,
-    foodImage:'../images/roso golla image.jpg',
+    foodImage:'./images/roso golla image.jpg',
     category:"desserts"
     },
     {
     foodId:16,
     foodName:"Chicken Curry",
     foodPrice:150,
-    foodImage:'../images/chicken curry img.jpg',
+    foodImage:'./images/chicken curry img.jpg',
     category:"non veg"
     },
     {
     foodId:17,
     foodName:"Fish Cutlet",
     foodPrice:100,
-    foodImage:'../images/Fish Cutlet img.jpg',
+    foodImage:'./images/Fish Cutlet img.jpg',
     category:"non veg"
     },
     {
     foodId:18,
     foodName:"Mutton Kosha",
     foodPrice:150,
-    foodImage:'../images/mutton kosha img.jpg',
+    foodImage:'./images/mutton kosha img.jpg',
     category:"non veg"
     },
     {
