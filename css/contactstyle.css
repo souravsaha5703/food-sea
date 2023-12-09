@@ -334,7 +334,7 @@ footer{
         width: 100%;
     }
     .text-container h1{
-        font-size: 3.5rem;
+        font-size: 4rem;
     }
     .text-container-2{
         width: 100%;
@@ -371,20 +371,12 @@ footer{
         justify-content: center;
     }
 }
-@media (max-width:580px){
-    .text-container h1{
-        font-size: 3rem;
-    }
-}
 @media (max-width:526px){
     .menu-section{
         width: 450px;
     }
     #heading-text{
         height: 100vh;
-    }
-    .text-container h1{
-        font-size: 3rem;
     }
     .text-container #bannerimg{
         width: 60px;
@@ -402,11 +394,11 @@ footer{
         height: 100vh;
     }
     .text-container h1{
-        font-size: 2.8rem;
+        font-size: 3rem;
     }
     .text-container #bannerimg{
-        width: 100px;
-        height: 80px;
+        width: 60px;
+        height: 60px;
     }
 }
 @media (max-width:375px){
