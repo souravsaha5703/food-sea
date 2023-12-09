@@ -461,6 +461,9 @@ footer{
     }
 }
 @media (max-width:686px){
+    #cursor{
+        display: none;
+    }
     .menu-section{
         width: 500px;
         right: -150%;

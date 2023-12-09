@@ -294,6 +294,9 @@ input.minus {
     }
 }
 @media (max-width:510px){
+    #cursor{
+        display: none;
+    }
     .menu-section{
         width: 450px;
     }

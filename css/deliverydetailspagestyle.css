@@ -129,6 +129,9 @@ textarea:focus{
     color: var(--main-color);
 }
 @media (max-width:536px){
+    #cursor{
+        display: none;
+    }
     #form-section{
         width: 400px;
     }
