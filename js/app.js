@@ -335,7 +335,7 @@ gsap.from(".text-intro h1",{
     }
 });
 gsap.from(".text-intro p",{
-    x:150,
+    y:150,
     opacity:0,
     duration:1.5,
     scrollTrigger:{
